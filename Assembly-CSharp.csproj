@@ -61,8 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LeapMotion\Core\Examples\Example Assets\InertiaPostProcessProvider.cs" />
-    <Compile Include="Assets\LeapMotion\Core\Examples\Example Assets\ProjectionPostProcessProvider.cs" />
     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Arm.cs" />
     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\Bone.cs" />
     <Compile Include="Assets\LeapMotion\Core\Plugins\LeapCSharp\CircularObjectBuffer.cs" />
@@ -178,6 +176,8 @@
     <Compile Include="Assets\LeapMotion\Core\Scripts\HandRepresentation.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\CapsuleHand.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\DebugHand.cs" />
+    <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\Examples\Example Assets\InertiaPostProcessProvider.cs" />
+    <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\Examples\Example Assets\ProjectionPostProcessProvider.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\FingerModel.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\HandDrop.cs" />
     <Compile Include="Assets\LeapMotion\Core\Scripts\Hands\HandEnableDisable.cs" />
