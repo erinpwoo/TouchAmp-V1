@@ -224,7 +224,7 @@ MonoBehaviour:
   serverIp: 127.0.0.1
   serverPort: 7400
   debugKey: 115
-  debugMessage: /boo
+  debugMessage: hellooooo
 --- !u!65 &436620370
 BoxCollider:
   m_ObjectHideFlags: 0
