@@ -312,6 +312,16 @@
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\Utility\PhysicsCallbacks.cs" />
     <Compile Include="Assets\Scripts\ButtonPress.cs" />
     <Compile Include="Assets\Scripts\IndexCollisionScript.cs" />
+    <Compile Include="Assets\Scripts\OSCController.cs" />
+    <Compile Include="Assets\Scripts\TouchAmpController.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\Examples\SimpleReceiver\SimpleReceiverExample.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCBundle.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCClient.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCHandler.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCMessage.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCPacket.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCReciever.cs" />
+    <Compile Include="Assets\UnityOSC-master-src\OSC\OSCServer.cs" />
     <None Include="Assets\LeapMotion\Core\Resources\LeapCG.cginc" />
     <None Include="Assets\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
     <None Include="Assets\LeapMotion\Core\readme.txt" />
@@ -523,6 +533,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="InteractionEngineUtility">
+      <HintPath>C:/Users/Anzu/Documents/GitHub/TouchAmp-V1/Assets/LeapMotion/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Anzu/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
@@ -531,9 +544,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Anzu/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="InteractionEngineUtility">
-      <HintPath>C:/Users/Anzu/Documents/GitHub/TouchAmp-V1/Assets/LeapMotion/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
