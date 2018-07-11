@@ -608,6 +608,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 20d09ea4e1aa9fc44bbc91ed1496924e, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -1156,6 +1160,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c66b5fb4c5a39914187a739147b28d5d, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -1544,7 +1552,7 @@ GameObject:
   - component: {fileID: 916596879}
   m_Layer: 0
   m_Name: Orange Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1761,6 +1769,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -1898,6 +1910,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d82b46503f0fcbb438b295a736209a26, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -2187,7 +2203,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
       propertyPath: m_Name
-      value: Light Blue Cube
+      value: Light Blue Button
       objectReference: {fileID: 0}
     - target: {fileID: 114066882520849834, guid: 0e920b4bcf163f64194e925fe0b51015,
         type: 2}
@@ -2204,6 +2220,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: aeb528b6bbdee49ce888db6763e93166, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -2772,6 +2792,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 50ed8d65d762b412fab23b3b7019ae5a, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -2783,6 +2807,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1844815233}
+  - component: {fileID: 1844815235}
+  - component: {fileID: 1844815234}
   m_Layer: 0
   m_Name: Button Base
   m_TagString: Untagged
@@ -2812,6 +2838,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844815234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1844815232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6596cc83daa4779449e4811bd8f4cfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1844815235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1844815232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d5f0d4051efb42b3f8e64e3740b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverId: MaxMSP
+  serverIp: 127.0.0.1
+  serverPort: 7400
+  debugKey: 115
+  debugMessage: /sample
 --- !u!1 &1857946316
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,6 +3131,10 @@ Prefab:
       propertyPath: _manager
       value: 
       objectReference: {fileID: 1689822960}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0
@@ -3597,6 +3654,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1bcb2c8335bc549c795fa5a287bdac62, type: 2}
+    - target: {fileID: 1000723429754678, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
   m_IsPrefabParent: 0

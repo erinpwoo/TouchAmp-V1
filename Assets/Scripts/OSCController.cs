@@ -19,8 +19,52 @@
 
         public KeyCode debugKey = KeyCode.S;
         public string debugMessage = "/sample";
-   
-    // Update is called once per frame
+
+
+    //Presets updating based on collision with colored buttons
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Button")
+        {
+            string buttonTag = collision.gameObject.name;
+            int preset;
+            switch(buttonTag)
+            {
+                case "Orange Button":
+                    preset = 1;
+                    break;
+                case "Green Button":
+                    preset = 2;
+                    break;
+                case "Red Button":
+                    preset = 3;
+                    break;
+                case "Yellow Button":
+                    preset = 4;
+                    break;
+                case "Light Blue Button":
+                    preset = 5;
+                    break;
+                case "Grey Button":
+                    preset = 6;
+                    break;
+                case "Pink Button":
+                    preset = 7;
+                    break;
+                case "Blue Button":
+                    preset = 8;
+                    break;
+                case "Purple Button":
+                    preset = 9;
+                    break;
+                default: //default preset: 36
+                    preset = 36;
+                    break;
+            }
+            OSCHandler.Instance.SendMessageToClient(this.serverId, this.debugMessage, preset);
+        }
+    }
+
     void Update()
         {
             if (Input.GetKeyDown(this.debugKey))
