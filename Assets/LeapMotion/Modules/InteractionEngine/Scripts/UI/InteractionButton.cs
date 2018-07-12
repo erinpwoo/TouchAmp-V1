@@ -82,7 +82,6 @@ namespace Leap.Unity.Interaction {
     [SerializeField]
     [FormerlySerializedAs("OnUnpress")]
     private UnityEvent _OnUnpress = new UnityEvent();
-
     public Action OnPress = () => { };
     public Action OnUnpress = () => { };
 
@@ -252,7 +251,7 @@ namespace Leap.Unity.Interaction {
     private const float FRICTION_COEFFICIENT = 30F;
     private const float DRAG_COEFFICIENT = 60F;
     protected virtual void Update() {
-
+      SendToMaxMSP();
       // Reset our convenience state variables.
       _pressedThisFrame = false;
       _unpressedThisFrame = false;
@@ -383,7 +382,7 @@ namespace Leap.Unity.Interaction {
         if (isPressed && !oldDepressed) {
           primaryHoveringController.primaryHoverLocked = true;
           _lockedInteractingController = primaryHoveringController;
-
+           SendToMaxMSP();
           OnPress();
           _pressedThisFrame = true;
 
@@ -497,6 +496,54 @@ namespace Leap.Unity.Interaction {
       SetMaxHeight(maxHeight);
     }
 
+    public void SendToMaxMSP()
+    {
+            //Debug.Log("entering maxmsp function");
+            int preset = 36;
+            if (this.isPressed == true)
+            {
+                Debug.Log("isPressed: " + isPressed + " " + this.name);
+                Debug.Log("entering ispressed");
+                if (this.tag == "Button")
+                {
+                    string buttonTag = this.name;
+                    switch (buttonTag)
+                    {
+                        case "Orange Button":
+                            preset = 1;
+                            break;
+                        case "Green Button":
+                            preset = 2;
+                            break;
+                        case "Red Button":
+                            preset = 3;
+                            break;
+                        case "Yellow Button":
+                            preset = 4;
+                            break;
+                        case "Light Blue Button":
+                            preset = 5;
+                            break;
+                        case "Grey Button":
+                            preset = 6;
+                            break;
+                        case "Pink Button":
+                            preset = 7;
+                            break;
+                        case "Blue Button":
+                            preset = 8;
+                            break;
+                        case "Purple Button":
+                            preset = 9;
+                            break;
+                        default: //default preset: 36
+                            preset = 36;
+                            break;
+                    }
+                }
+                OSCHandler.Instance.SendMessageToClient("MaxMSP", "127.0.0.1", preset);
+            }
+    }
     #endregion
 
   }

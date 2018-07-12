@@ -10,7 +10,7 @@ public class ButtonPress : InteractionBehaviour
 
     // InteractionButton button;
 
-    void Press()
+    public void Press()
     {
 
         Debug.Log(this.name);
