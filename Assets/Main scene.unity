@@ -1112,7 +1112,7 @@ Prefab:
     - target: {fileID: 114066882520849834, guid: 0e920b4bcf163f64194e925fe0b51015,
         type: 2}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4212012485770620, guid: 0e920b4bcf163f64194e925fe0b51015, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1601,7 +1601,6 @@ GameObject:
   - component: {fileID: 916596878}
   - component: {fileID: 916596880}
   - component: {fileID: 916596879}
-  - component: {fileID: 916596881}
   m_Layer: 0
   m_Name: Orange Button
   m_TagString: Button
@@ -1686,35 +1685,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &916596881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 916596877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ccac0ad94765b04c965f5b9080a6cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _manager: {fileID: 1689822960}
-  _ignoreHoverMode: 0
-  _isIgnoringAllHoverState: 0
-  _ignorePrimaryHover: 0
-  _ignoreContact: 0
-  _ignoreGrasping: 0
-  _contactForceMode: 0
-  _allowMultiGrasp: 0
-  _moveObjectWhenGrasped: 1
-  graspedMovementType: 0
-  _overrideInteractionLayer: 0
-  _interactionLayer:
-    layerIndex: 0
-  _overrideNoContactLayer: 0
-  _noContactLayer:
-    layerIndex: 0
-  _eventTable:
-    _entries: []
 --- !u!1 &1066603520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,7 +2848,6 @@ GameObject:
   - component: {fileID: 1844815235}
   - component: {fileID: 1844815234}
   - component: {fileID: 1844815237}
-  - component: {fileID: 1844815236}
   m_Layer: 0
   m_Name: Button Base
   m_TagString: Untagged
@@ -2935,35 +2904,6 @@ MonoBehaviour:
   serverPort: 7400
   debugKey: 115
   debugMessage: 'preset:'
---- !u!114 &1844815236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1844815232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ccac0ad94765b04c965f5b9080a6cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _manager: {fileID: 1689822960}
-  _ignoreHoverMode: 0
-  _isIgnoringAllHoverState: 0
-  _ignorePrimaryHover: 0
-  _ignoreContact: 0
-  _ignoreGrasping: 0
-  _contactForceMode: 0
-  _allowMultiGrasp: 0
-  _moveObjectWhenGrasped: 1
-  graspedMovementType: 0
-  _overrideInteractionLayer: 0
-  _interactionLayer:
-    layerIndex: 0
-  _overrideNoContactLayer: 0
-  _noContactLayer:
-    layerIndex: 0
-  _eventTable:
-    _entries: []
 --- !u!54 &1844815237
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -501,8 +501,8 @@ namespace Leap.Unity.Interaction {
 
     public void SendToMaxMSP()
     {
-            Debug.Log("entering maxmsp function");
-            Debug.Log("isPressed: " + isPressed + " " + this.name);
+           // Debug.Log("entering maxmsp function");
+           // Debug.Log("isPressed: " + isPressed + " " + this.name);
             int preset = 36;
             if (this._isPressed == true)
             {
@@ -544,8 +544,9 @@ namespace Leap.Unity.Interaction {
                             preset = 36;
                             break;
                     }
+                    Debug.Log("preset " + preset + " " + this.name);
                 }
-                OSCHandler.Instance.SendMessageToClient("MaxMSP", "127.0.0.1", preset);
+                OSCHandler.Instance.SendMessageToClient("MaxMSP", "/boo", preset);
             }
     }
     #endregion
