@@ -389,10 +389,12 @@ namespace Leap.Unity.Interaction {
         } else if (!isPressed && oldDepressed) {
           _unpressedThisFrame = true;
           OnUnpress();
-
-          if (!(isGrasped && graspingController == _lockedInteractingController)) {
+          
+          //GRASPING DISABLED
+          /*if (!(isGrasped && graspingController == _lockedInteractingController)) {
             _lockedInteractingController.primaryHoverLocked = false;
           }
+          */
 
           _lastDepressor = null;
         }
@@ -429,8 +431,9 @@ namespace Leap.Unity.Interaction {
       }
     }
 
-    protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); }
+    protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true; }
     protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); }
+    protected virtual void OnCollisionExit(Collision collision) { _isPressed = false; }
 
     // during Soft Contact, controller colliders are triggers
     protected virtual void OnTriggerEnter(Collider collider) { trySetDepressor(collider); }
@@ -498,11 +501,12 @@ namespace Leap.Unity.Interaction {
 
     public void SendToMaxMSP()
     {
-            //Debug.Log("entering maxmsp function");
+            Debug.Log("entering maxmsp function");
+            Debug.Log("isPressed: " + isPressed + " " + this.name);
             int preset = 36;
-            if (this.isPressed == true)
+            if (this._isPressed == true)
             {
-                Debug.Log("isPressed: " + isPressed + " " + this.name);
+                
                 Debug.Log("entering ispressed");
                 if (this.tag == "Button")
                 {
