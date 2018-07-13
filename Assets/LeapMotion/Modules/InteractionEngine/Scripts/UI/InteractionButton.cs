@@ -517,28 +517,28 @@ namespace Leap.Unity.Interaction {
                             preset = 1;
                             break;
                         case "Green Button":
-                            preset = 2;
+                            preset = 15;
                             break;
                         case "Red Button":
-                            preset = 3;
+                            preset = 13;
                             break;
                         case "Yellow Button":
-                            preset = 4;
+                            preset = 21;
                             break;
                         case "Light Blue Button":
-                            preset = 5;
+                            preset = 18;
                             break;
                         case "Grey Button":
                             preset = 6;
                             break;
                         case "Pink Button":
-                            preset = 7;
+                            preset = 30;
                             break;
                         case "Blue Button":
-                            preset = 8;
+                            preset = 32;
                             break;
                         case "Purple Button":
-                            preset = 9;
+                            preset = 12;
                             break;
                         default: //default preset: 36
                             preset = 36;
