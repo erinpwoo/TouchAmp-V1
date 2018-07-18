@@ -125,6 +125,8 @@
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\UI\Editor\InteractionButtonEditor.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\UI\Editor\InteractionSliderEditor.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\Utility\Editor\IgnoreColliderForInteractionEditor.cs" />
+    <Compile Include="Assets\RockVR\Video\Editor\VideoCaptureEditor.cs" />
+    <Compile Include="Assets\RockVR\Video\Editor\VideoCaptureMenuEditor.cs" />
     <Compile Include="Assets\UnityOSC-master-src\Editor\OSCHelper.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Anzu/Documents/GitHub/TouchAmp-V1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

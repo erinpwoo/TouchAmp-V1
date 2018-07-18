@@ -309,7 +309,7 @@ namespace Leap.Unity.Interaction {
                        -100f / transform.parent.lossyScale.x,
                         100f / transform.parent.lossyScale.x)
             * Time.fixedDeltaTime * Vector3.forward;
-
+           //MANIPULATING BUTTON MOVEMENT HERE
           // Friction & Drag
           float velMag = originalLocalVelocity.magnitude;
           var frictionDragVelocityChangeAmt = 0f;
@@ -383,7 +383,7 @@ namespace Leap.Unity.Interaction {
           primaryHoveringController.primaryHoverLocked = true;
           _lockedInteractingController = primaryHoveringController;
            SendToMaxMSP();
-          OnPress();
+           OnPress();
           _pressedThisFrame = true;
 
         } else if (!isPressed && oldDepressed) {
@@ -514,31 +514,31 @@ namespace Leap.Unity.Interaction {
                     switch (buttonTag)
                     {
                         case "Orange Button":
-                            preset = 1;
+                            preset = 34;
                             break;
                         case "Green Button":
-                            preset = 15;
+                            preset = 26;
                             break;
                         case "Red Button":
-                            preset = 13;
+                            preset = 12;
                             break;
                         case "Yellow Button":
-                            preset = 21;
+                            preset = 20;
                             break;
                         case "Light Blue Button":
-                            preset = 18;
+                            preset = 23;
                             break;
                         case "Grey Button":
-                            preset = 6;
+                            preset = 18;
                             break;
                         case "Pink Button":
-                            preset = 30;
+                            preset = 13;
                             break;
                         case "Blue Button":
-                            preset = 32;
+                            preset = 16;
                             break;
                         case "Purple Button":
-                            preset = 12;
+                            preset = 3;
                             break;
                         default: //default preset: 36
                             preset = 36;
@@ -549,6 +549,11 @@ namespace Leap.Unity.Interaction {
                 OSCHandler.Instance.SendMessageToClient("MaxMSP", "/boo", preset);
             }
     }
+
+    public void ButtonReact(float velocity) //writing function to represent button shake
+        {
+
+        }
     #endregion
 
   }
