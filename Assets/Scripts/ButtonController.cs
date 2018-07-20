@@ -8,24 +8,12 @@ namespace Leap.Unity.Interaction
     public class ButtonController : MonoBehaviour
     {
         private InteractionButton button;
-        bool lightUp;
+        Color color;
 
-        void Start()
-        {
-            button = GetComponent<InteractionButton>();
-            lightUp = false;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        void LightUp() //lights up individual button when called upon -- NEEDS FIXING
+        void Awake()
         {
             string buttonTag = this.name;
-            Color color;
+            
             switch (buttonTag)
             {
                 case "Orange Button":
@@ -59,8 +47,33 @@ namespace Leap.Unity.Interaction
                     color = Color.clear;
                     break;
             }
+        }
+        void Start()
+        {
+            button = GetComponent<InteractionButton>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            Renderer renderer = GetComponent<Renderer>();
+        }
+
+        public void LightUp() //lights up individual button when called upon -- NEEDS FIXING
+        {
+            Debug.Log("entering lightup");
             Material material = GetComponent<Renderer>().material;
-            material.SetColor("_EmissionColor", color);
+            if (button.isLit == true) {
+                Debug.Log("is Lit");
+                material.EnableKeyword("_EMISSION");
+                material.SetColor("_EmissionColor", color);
+            }
+            else
+            {
+                Debug.Log("is not lit");
+                material.SetColor("_Color", color);
+            }
+            
         }
     }
 }

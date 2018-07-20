@@ -21,7 +21,7 @@ namespace Leap.Unity.Interaction {
   ///</summary>
   public class InteractionButton : InteractionBehaviour {
 
-    public int buttonNum;
+        public bool isLit;
     #region Inspector
 
     [Header("UI Control")]
@@ -195,6 +195,7 @@ namespace Leap.Unity.Interaction {
         enabled = false;
       }
 
+            isLit = false;
       // Initialize Positions
       initialLocalPosition = transform.localPosition;
       if (startingPositionMode == StartingPositionMode.Relaxed) {
@@ -252,7 +253,16 @@ namespace Leap.Unity.Interaction {
     private const float FRICTION_COEFFICIENT = 30F;
     private const float DRAG_COEFFICIENT = 60F;
     protected virtual void Update() {
+      if (_isPressed == true)
+            {
+                isLit = true;
+            }
+      else
+            {
+                isLit = false;
+            }
       SendToMaxMSP();
+      LightUp();
       // Reset our convenience state variables.
       _pressedThisFrame = false;
       _unpressedThisFrame = false;
@@ -551,7 +561,7 @@ namespace Leap.Unity.Interaction {
             }
     }
 
-        void lightUp() //lights up individual button when called upon
+        public void LightUp()
         {
             string buttonTag = this.name;
             Color color;
@@ -588,8 +598,21 @@ namespace Leap.Unity.Interaction {
                     color = Color.clear;
                     break;
             }
+
+            Debug.Log("entering lightup");
             Material material = GetComponent<Renderer>().material;
-            material.SetColor("_EmissionColor", color);
+            if (isLit == true)
+            {
+                Debug.Log("is Lit");
+                material.EnableKeyword("_EMISSION");
+                material.SetColor("_EmissionColor", color);
+            }
+            else
+            {
+                Debug.Log("is not lit");
+                material.SetColor("_Color", color);
+            } 
+
         }
         #endregion
 
