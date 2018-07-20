@@ -56,15 +56,15 @@ namespace Leap.Unity.Interaction
         // Update is called once per frame
         void Update()
         {
-            Renderer renderer = GetComponent<Renderer>();
+            button.LightUp();
         }
 
         public void LightUp() //lights up individual button when called upon -- NEEDS FIXING
         {
             Debug.Log("entering lightup");
-            Material material = GetComponent<Renderer>().material;
+            Material material = button.GetComponent<Renderer>().material;
             if (button.isLit == true) {
-                Debug.Log("is Lit");
+                Debug.Log(button.name + " is Lit");
                 material.EnableKeyword("_EMISSION");
                 material.SetColor("_EmissionColor", color);
             }

@@ -138,6 +138,7 @@ namespace Leap.Unity.Interaction {
     /// </summary>
     public void Toggle() {
       isToggled = true;
+            LightUp();
     }
 
     /// <summary>
@@ -145,6 +146,8 @@ namespace Leap.Unity.Interaction {
     /// </summary>
     public void Untoggle() {
       isToggled = false;
+            LightUp();
+      
     }
   }
 }

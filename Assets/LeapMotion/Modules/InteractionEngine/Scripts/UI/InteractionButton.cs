@@ -22,9 +22,14 @@ namespace Leap.Unity.Interaction {
   public class InteractionButton : InteractionBehaviour {
 
         public bool isLit;
+        public Material[] materials;
+        Material material;
+        Material emission;
+        Renderer rend;
+
     #region Inspector
 
-    [Header("UI Control")]
+        [Header("UI Control")]
 
     [Tooltip("When set to false, this UI control will not be functional. Use this instead "
            + "of disabling the component itself when you want to disable the user's "
@@ -190,7 +195,12 @@ namespace Leap.Unity.Interaction {
     }
 
     protected override void Start() {
-      if(transform == transform.root) {
+            material = GetComponent<Renderer>().materials[0];
+            emission = GetComponent<Renderer>().materials[1];
+            rend = GetComponent<Renderer>();
+            rend.material = material;
+  
+            if (transform == transform.root) {
         Debug.LogError("This button has no parent!  Please ensure that it is parented to something!", this);
         enabled = false;
       }
@@ -261,6 +271,10 @@ namespace Leap.Unity.Interaction {
             {
                 isLit = false;
             }
+
+            float lerp = Mathf.PingPong(Time.time, 2.0F) / 2.0F;
+            rend.material.Lerp(material, emission, lerp);
+
       SendToMaxMSP();
       LightUp();
       // Reset our convenience state variables.
@@ -600,18 +614,23 @@ namespace Leap.Unity.Interaction {
             }
 
             Debug.Log("entering lightup");
-            Material material = GetComponent<Renderer>().material;
+
             if (isLit == true)
             {
-                Debug.Log("is Lit");
-                material.EnableKeyword("_EMISSION");
-                material.SetColor("_EmissionColor", color);
+                Debug.Log( name +" is Lit");
+                rend.material.EnableKeyword("_EMISSION");
+                rend.material.SetColor("_EmissionColor", color);
             }
             else
             {
-                Debug.Log("is not lit");
-                material.SetColor("_Color", color);
+                Debug.Log(name + " is not lit");
+                rend.material.SetColor("_Color", color);
             } 
+
+        }
+
+        public void DisplayPattern()
+        {
 
         }
         #endregion
