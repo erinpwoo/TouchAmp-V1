@@ -9,6 +9,7 @@ namespace Leap.Unity.Interaction
     {
         private InteractionButton button;
         Color color;
+        Component cube;
 
         void Awake()
         {

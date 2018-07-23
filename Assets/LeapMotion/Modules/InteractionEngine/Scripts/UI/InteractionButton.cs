@@ -22,10 +22,11 @@ namespace Leap.Unity.Interaction {
   public class InteractionButton : InteractionBehaviour {
 
         public bool isLit;
-        public Material[] materials;
-        Material material;
-        Material emission;
         Renderer rend;
+        public Material unlit;
+        public Material emission;
+        public Transform child;
+        Material[] mats;
 
     #region Inspector
 
@@ -195,11 +196,14 @@ namespace Leap.Unity.Interaction {
     }
 
     protected override void Start() {
-            material = GetComponent<Renderer>().materials[0];
-            emission = GetComponent<Renderer>().materials[1];
-            rend = GetComponent<Renderer>();
-            rend.material = material;
-  
+
+            child = transform.GetChild(0);
+            rend = GetComponentInChildren<Renderer>();
+            unlit = rend.sharedMaterials[0];
+            emission = rend.sharedMaterials[1];
+
+            rend.material = emission;
+
             if (transform == transform.root) {
         Debug.LogError("This button has no parent!  Please ensure that it is parented to something!", this);
         enabled = false;
@@ -273,7 +277,7 @@ namespace Leap.Unity.Interaction {
             }
 
             float lerp = Mathf.PingPong(Time.time, 2.0F) / 2.0F;
-            rend.material.Lerp(material, emission, lerp);
+            //nd.material.Lerp(material, emission, lerp);
 
       SendToMaxMSP();
       LightUp();
@@ -526,8 +530,7 @@ namespace Leap.Unity.Interaction {
 
     public void SendToMaxMSP()
     {
-           // Debug.Log("entering maxmsp function");
-           // Debug.Log("isPressed: " + isPressed + " " + this.name);
+
             int preset = 36;
             if (this._isPressed == true)
             {
@@ -577,54 +580,17 @@ namespace Leap.Unity.Interaction {
 
         public void LightUp()
         {
-            string buttonTag = this.name;
-            Color color;
-            switch (buttonTag)
-            {
-                case "Orange Button":
-                    color = new Color(.2F, .3F, .4F);
-                    break;
-                case "Green Button":
-                    color = Color.green;
-                    break;
-                case "Red Button":
-                    color = Color.red;
-                    break;
-                case "Yellow Button":
-                    color = Color.yellow;
-                    break;
-                case "Light Blue Button":
-                    color = Color.cyan;
-                    break;
-                case "Grey Button":
-                    color = Color.grey;
-                    break;
-                case "Pink Button":
-                    color = new Color(1F, .71F, .76F);
-                    break;
-                case "Blue Button":
-                    color = Color.blue;
-                    break;
-                case "Purple Button":
-                    color = new Color(.58F, 0, .83F);
-                    break;
-                default: //default preset: 36
-                    color = Color.clear;
-                    break;
-            }
-
             Debug.Log("entering lightup");
 
             if (isLit == true)
             {
                 Debug.Log( name +" is Lit");
-                rend.material.EnableKeyword("_EMISSION");
-                rend.material.SetColor("_EmissionColor", color);
+                rend.material = rend.sharedMaterials[1];
             }
             else
             {
                 Debug.Log(name + " is not lit");
-                rend.material.SetColor("_Color", color);
+                rend.material = rend.sharedMaterials[0];
             } 
 
         }
