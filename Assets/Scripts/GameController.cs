@@ -6,7 +6,7 @@ namespace Leap.Unity.Interaction
 {
     public class GameController : MonoBehaviour
     {
-
+        public MaterialChange buttonControl;
         //BUTTON INDICES:
         //Green = 0; Blue = 1; Yellow = 2; Light blue = 3; Pink = 4; Purple = 5; Red = 6; Grey = 7; Orange = 8
 
@@ -24,6 +24,12 @@ namespace Leap.Unity.Interaction
             buttons = GameObject.FindGameObjectsWithTag("Button");
             pattern.Add(Random.Range(0, 7));
             //playGame();
+
+            //TESTING FUNCTIONS
+            UpdatePattern();
+            UpdatePattern();
+            PlayPattern();
+
             Debug.Log("Start");
         }
 
@@ -37,7 +43,7 @@ namespace Leap.Unity.Interaction
         {
             for (int i = 0; i < pattern.Count; i++)
             {
-                buttons[pattern[i]].GetComponent<InteractionButton>().StartCoroutine("CueLightUp()"); //selects Interaction button, applies LightUp()
+                buttons[pattern[i]].GetComponent<MaterialChange>().StartCoroutine("CueLightUp()"); //selects Interaction button, applies LightUp()
             }
         }
 

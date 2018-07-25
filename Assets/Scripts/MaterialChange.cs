@@ -6,8 +6,8 @@ using UnityEngine;
     public class MaterialChange : MonoBehaviour
     {
         public Material emissive;
-        Transform child;
-        Material original;
+        public Transform child;
+        public Material original;
         public bool pressed;
 
         void Awake()
