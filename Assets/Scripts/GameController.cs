@@ -22,25 +22,61 @@ namespace Leap.Unity.Interaction
             roundNum = 0;
             isPlaying = true;
             buttons = GameObject.FindGameObjectsWithTag("Button");
-            for (int i = 0; i < buttons.Length; i ++)
+            pattern.Add(Random.Range(0, 7));
+            playGame();
+        }
+
+        void UpdatePattern() //increments pattern list, adds new index to call upon
+        {
+            pattern.Add(Random.Range(0, 7));
+            roundNum++;
+        }
+
+        void PlayPattern() //randomly generates and executes pattern 
+        {
+            for (int i = 0; i < pattern.Count; i++)
             {
-                Debug.Log(i + " " + buttons[i].name);
+                buttons[pattern[i]].GetComponent<InteractionButton>().StartCoroutine("CueLightUp"); //selects Interaction button, applies LightUp()
             }
         }
 
-        void playRound() //randomly generates and executes pattern 
+        IEnumerator UsersTurn()
         {
-            pattern.Add(Random.Range(0, 7));
-            for (int i = 0; i < roundNum; i++)
+            for (int i = 0; i < pattern.Count; i++)
             {
-                buttons[pattern[i]].GetComponent<InteractionButton>().LightUp(); //selects Interaction button, applies LightUp()
+                while (buttons[pattern[i]].GetComponent<InteractionButton>().isPressed == false) { //checks if any button besides the one that should be pressed is pressed
+                    foreach (GameObject button in buttons)
+                        {
+                            if (button.GetComponent<InteractionButton>().isPressed)
+                            {
+                                isPlaying = false;
+                            }
+                        }
+                }
+                yield return new WaitUntil(() => buttons[pattern[i]].GetComponent<InteractionButton>().isPressed == true); //waits until user presses the correct button
             }
+            
+        }
+
+        void playGame()
+        {
+            while (isPlaying == true)
+            {
+                PlayPattern();
+                UsersTurn();
+                UpdatePattern();
+            }
+
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            if (isPlaying == false)
+            {
+                Debug.Log("Score: " + roundNum);
+                Application.Quit();
+            }
         }
 
     }

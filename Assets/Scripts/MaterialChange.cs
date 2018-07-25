@@ -18,11 +18,10 @@ using UnityEngine;
         }
         void Start()
         {
-            Debug.Log("Name: " + child.name);
-            Debug.Log("Child material: " + original);
+            
         }
 
-        private void OnCollisionEnter(Collision collision)
+        public void OnCollisionEnter(Collision collision)
         {
             child.GetComponent<Renderer>().material = emissive;
         }
@@ -32,9 +31,17 @@ using UnityEngine;
             child.GetComponent<Renderer>().material = original;        
         }
 
-        private void OnCollisionStay(Collision collision)
+        public void OnCollisionStay(Collision collision)
         {
             child.GetComponent<Renderer>().material = emissive;
+        }
+
+
+        public IEnumerator CueLightUp()
+        {
+            child.GetComponent<Renderer>().material = emissive;
+            yield return new WaitForSeconds(2);
+            child.GetComponent<Renderer>().material = original;
         }
 
     // Update is called once per frame
