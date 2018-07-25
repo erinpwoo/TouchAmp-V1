@@ -23,7 +23,8 @@ namespace Leap.Unity.Interaction
             isPlaying = true;
             buttons = GameObject.FindGameObjectsWithTag("Button");
             pattern.Add(Random.Range(0, 7));
-            playGame();
+            //playGame();
+            Debug.Log("Start");
         }
 
         void UpdatePattern() //increments pattern list, adds new index to call upon
@@ -36,7 +37,7 @@ namespace Leap.Unity.Interaction
         {
             for (int i = 0; i < pattern.Count; i++)
             {
-                buttons[pattern[i]].GetComponent<InteractionButton>().StartCoroutine("CueLightUp"); //selects Interaction button, applies LightUp()
+                buttons[pattern[i]].GetComponent<InteractionButton>().StartCoroutine("CueLightUp()"); //selects Interaction button, applies LightUp()
             }
         }
 
@@ -63,7 +64,7 @@ namespace Leap.Unity.Interaction
             while (isPlaying == true)
             {
                 PlayPattern();
-                UsersTurn();
+                StartCoroutine("UsersTurn()");
                 UpdatePattern();
             }
 

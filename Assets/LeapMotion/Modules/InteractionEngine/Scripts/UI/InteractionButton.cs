@@ -267,11 +267,11 @@ namespace Leap.Unity.Interaction {
     protected virtual void Update() {
       if (_isPressed == true)
             {
-                isLit = true;
+               
             }
       else
             {
-                isLit = false;
+              
             }
 
             float lerp = Mathf.PingPong(Time.time, 2.0F) / 2.0F;

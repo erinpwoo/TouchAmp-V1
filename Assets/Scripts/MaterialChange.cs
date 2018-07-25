@@ -8,16 +8,14 @@ using UnityEngine;
         public Material emissive;
         Transform child;
         Material original;
+        public bool pressed;
 
         void Awake()
         {
+        pressed = false;
             string buttonTag = this.name;
             child = this.gameObject.transform.Find("Cube");
             original = child.GetComponent<Renderer>().material;
-            
-        }
-        void Start()
-        {
             
         }
 
@@ -43,12 +41,5 @@ using UnityEngine;
             yield return new WaitForSeconds(2);
             child.GetComponent<Renderer>().material = original;
         }
-
-    // Update is called once per frame
-    void Update()
-        {
-            
-        }
-
     }
 

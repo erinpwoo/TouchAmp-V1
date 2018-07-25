@@ -115,7 +115,7 @@ namespace Leap.Unity.Interaction {
       enabledPrimaryHoverFingertips = new bool[] { true, true, true, false, false };
     }
 
-    protected override void Start() {
+        protected override void Start() {
       base.Start();
 
       // Check manual configuration if data mode is custom.
