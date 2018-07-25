@@ -22,11 +22,7 @@ namespace Leap.Unity.Interaction {
   public class InteractionButton : InteractionBehaviour {
 
         public bool isLit;
-        Renderer rend;
-        public Material unlit;
-        public Material emission;
-        public Transform child;
-        Material[] mats;
+        public Renderer rend;
 
     #region Inspector
 
@@ -197,12 +193,14 @@ namespace Leap.Unity.Interaction {
 
     protected override void Start() {
 
-            child = transform.GetChild(0);
-            rend = GetComponentInChildren<Renderer>();
+
+            //child = transform.GetChild(0);
+            /*rend = gameObject.GetComponentInChildren<Renderer>();
             unlit = rend.sharedMaterials[0];
             emission = rend.sharedMaterials[1];
-
             rend.material = emission;
+            */
+
 
             if (transform == transform.root) {
         Debug.LogError("This button has no parent!  Please ensure that it is parented to something!", this);
@@ -577,6 +575,7 @@ namespace Leap.Unity.Interaction {
                 OSCHandler.Instance.SendMessageToClient("MaxMSP", "/boo", preset);
             }
     }
+        
 
         public void LightUp()
         {
@@ -584,16 +583,17 @@ namespace Leap.Unity.Interaction {
 
             if (isLit == true)
             {
-                Debug.Log( name +" is Lit");
-                rend.material = rend.sharedMaterials[1];
+                //Debug.Log( name +" is Lit");
+                //rend.material = rend.materials[1];
             }
             else
             {
-                Debug.Log(name + " is not lit");
-                rend.material = rend.sharedMaterials[0];
+                //Debug.Log(name + " is not lit");
+                //rend.material = rend.materials[0];
             } 
 
         }
+
 
         public void DisplayPattern()
         {

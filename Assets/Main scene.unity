@@ -495,7 +495,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 8dd82cf366815784490848ed8147a637, type: 2}
-  - {fileID: 2100000, guid: 443d0e055729051429599db3b3eeaad2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -878,7 +877,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: aeb528b6bbdee49ce888db6763e93166, type: 2}
-  - {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1452,7 +1450,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 1bcb2c8335bc549c795fa5a287bdac62, type: 2}
-  - {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1641,7 +1638,6 @@ GameObject:
   - component: {fileID: 832975661}
   - component: {fileID: 832975660}
   - component: {fileID: 832975662}
-  - component: {fileID: 832975663}
   - component: {fileID: 832975664}
   m_Layer: 0
   m_Name: Green Button
@@ -1681,9 +1677,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -1726,42 +1720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &832975663
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 832975659}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 1bcb2c8335bc549c795fa5a287bdac62, type: 2}
-  - {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  tex: {fileID: 0}
 --- !u!114 &832975664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,9 +1751,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -1873,7 +1830,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9c6e85a988cc7424bbebfb09af1fab05, type: 2}
-  - {fileID: 2100000, guid: f82cdb2480582d74682efd488346e40d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2111,9 +2067,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 0
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2255,8 +2209,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 50ed8d65d762b412fab23b3b7019ae5a, type: 2}
-  - {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2306,9 +2259,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 1
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2387,7 +2338,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: efe09766570f7413b873892c06323672, type: 2}
-  - {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2478,7 +2428,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 8c194c8f043d52f4d8ddfb220eedbc91, type: 2}
-  - {fileID: 2100000, guid: abd16fbd414c24f4bbc48454fadfca8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2531,7 +2480,6 @@ GameObject:
   - component: {fileID: 980858618}
   - component: {fileID: 980858617}
   - component: {fileID: 980858619}
-  - component: {fileID: 980858620}
   - component: {fileID: 980858621}
   m_Layer: 0
   m_Name: Purple Button
@@ -2571,9 +2519,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2616,42 +2562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &980858620
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 980858616}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: c3668e6cfed1245449b1c77a171b328a, type: 2}
-  - {fileID: 2100000, guid: cd566f98794d59b4997db14d3345a0bf, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  tex: {fileID: 0}
 --- !u!114 &980858621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,9 +2593,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2846,7 +2755,6 @@ GameObject:
   - component: {fileID: 1114690218}
   - component: {fileID: 1114690217}
   - component: {fileID: 1114690219}
-  - component: {fileID: 1114690220}
   - component: {fileID: 1114690221}
   m_Layer: 0
   m_Name: Blue Button
@@ -2886,9 +2794,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2931,42 +2837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &1114690220
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114690216}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: aeb528b6bbdee49ce888db6763e93166, type: 2}
-  - {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  tex: {fileID: 0}
 --- !u!114 &1114690221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2997,9 +2868,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3209,7 +3078,6 @@ GameObject:
   - component: {fileID: 415832460}
   - component: {fileID: 1399797891}
   - component: {fileID: 1399797890}
-  - component: {fileID: 1399797893}
   - component: {fileID: 1399797894}
   m_Layer: 0
   m_Name: Light Blue Button
@@ -3249,9 +3117,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3283,42 +3149,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!23 &1399797893
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1399797889}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 9c6e85a988cc7424bbebfb09af1fab05, type: 2}
-  - {fileID: 2100000, guid: f82cdb2480582d74682efd488346e40d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &1399797894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3349,9 +3179,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3421,7 +3249,6 @@ GameObject:
   - component: {fileID: 63279429}
   - component: {fileID: 1497035338}
   - component: {fileID: 1497035337}
-  - component: {fileID: 1497035340}
   - component: {fileID: 1497035341}
   m_Layer: 0
   m_Name: Red Button
@@ -3461,9 +3288,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3495,42 +3320,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!23 &1497035340
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1497035336}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: efe09766570f7413b873892c06323672, type: 2}
-  - {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &1497035341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,9 +3350,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3715,7 +3502,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4050235663507654, guid: dae2e2be31c98324eac460f702db97e9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4050235663507654, guid: dae2e2be31c98324eac460f702db97e9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3956,7 +3743,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 69b1643ce1326a54eb20c5022c2482ad, type: 2}
-  - {fileID: 2100000, guid: cd566f98794d59b4997db14d3345a0bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4077,7 +3863,6 @@ GameObject:
   - component: {fileID: 579528915}
   - component: {fileID: 1703618913}
   - component: {fileID: 1703618912}
-  - component: {fileID: 1703618915}
   - component: {fileID: 1703618916}
   m_Layer: 0
   m_Name: Yellow Button
@@ -4117,9 +3902,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -4151,42 +3934,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!23 &1703618915
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1703618911}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 3166e6264c07a485798195106afb35b3, type: 2}
-  - {fileID: 2100000, guid: cd99be566f081b24eae7229af89e3b44, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &1703618916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4217,9 +3964,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -4655,7 +4400,6 @@ GameObject:
   - component: {fileID: 64698860}
   - component: {fileID: 1938299200}
   - component: {fileID: 1938299199}
-  - component: {fileID: 1938299202}
   - component: {fileID: 1938299203}
   m_Layer: 0
   m_Name: Pink Button
@@ -4695,9 +4439,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -4729,42 +4471,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!23 &1938299202
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1938299198}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 8c194c8f043d52f4d8ddfb220eedbc91, type: 2}
-  - {fileID: 2100000, guid: abd16fbd414c24f4bbc48454fadfca8c, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &1938299203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4795,9 +4501,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -4952,7 +4656,6 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3166e6264c07a485798195106afb35b3, type: 2}
-  - {fileID: 2100000, guid: cd99be566f081b24eae7229af89e3b44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5086,8 +4789,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 50ed8d65d762b412fab23b3b7019ae5a, type: 2}
-  - {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
+  - {fileID: 2100000, guid: 51aa623f957920448819ed39545dc520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5341,7 +5043,6 @@ GameObject:
   - component: {fileID: 186193201}
   - component: {fileID: 2115037595}
   - component: {fileID: 2115037594}
-  - component: {fileID: 2115037597}
   - component: {fileID: 2115037598}
   m_Layer: 0
   m_Name: Grey Button
@@ -5381,9 +5082,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -5415,42 +5114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!23 &2115037597
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2115037593}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 8dd82cf366815784490848ed8147a637, type: 2}
-  - {fileID: 2100000, guid: 443d0e055729051429599db3b3eeaad2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &2115037598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5481,9 +5144,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   isLit: 0
-  materials: []
-  mats: []
-  child: {fileID: 0}
+  rend: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}

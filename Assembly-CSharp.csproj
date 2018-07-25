@@ -326,12 +326,12 @@
     <Compile Include="Assets\RockVR\Video\Scripts\VideoCapture.cs" />
     <Compile Include="Assets\RockVR\Video\Scripts\VideoCaptureCtrl.cs" />
     <Compile Include="Assets\RockVR\Video\Scripts\VideoPlayer.cs" />
-    <Compile Include="Assets\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Scripts\ButtonPress.cs" />
     <Compile Include="Assets\Scripts\EmissionControl.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\IndexCollisionScript.cs" />
     <Compile Include="Assets\Scripts\OSCController.cs" />
+    <Compile Include="Assets\Scripts\TextureChange.cs" />
     <Compile Include="Assets\UnityOSC-master-src\Examples\SimpleReceiver\SimpleReceiverExample.cs" />
     <Compile Include="Assets\UnityOSC-master-src\OSC\OSCBundle.cs" />
     <Compile Include="Assets\UnityOSC-master-src\OSC\OSCClient.cs" />
