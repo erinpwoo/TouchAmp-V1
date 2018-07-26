@@ -28,9 +28,9 @@ namespace Leap.Unity.Interaction
             //TESTING FUNCTIONS
             UpdatePattern();
             UpdatePattern();
-            PlayPattern();
+            StartCoroutine(PlayPattern());
 
-            Debug.Log("Start");
+            Debug.Log("roundNum: " + roundNum);
         }
 
         void UpdatePattern() //increments pattern list, adds new index to call upon
@@ -38,12 +38,16 @@ namespace Leap.Unity.Interaction
             pattern.Add(Random.Range(0, 7));
             roundNum++;
         }
+        
 
-        void PlayPattern() //randomly generates and executes pattern 
+        //COROUTINE BUG HERE
+        IEnumerator PlayPattern() //randomly generates and executes pattern 
         {
             for (int i = 0; i < pattern.Count; i++)
             {
-                buttons[pattern[i]].GetComponent<MaterialChange>().StartCoroutine("CueLightUp()"); //selects Interaction button, applies LightUp()
+                StartCoroutine(buttons[pattern[i]].GetComponent<MaterialChange>().CueLightUp()); //selects Interaction button, applies LightUp()
+                Debug.Log("Playing pattern: " + buttons[pattern[i]]);
+                yield return new WaitForSeconds(2);
             }
         }
 
