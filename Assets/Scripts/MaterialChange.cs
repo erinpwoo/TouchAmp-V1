@@ -5,35 +5,39 @@ using UnityEngine;
 
     public class MaterialChange : MonoBehaviour
     {
+
         public Material emissive;
         public Transform child;
         public Material original;
-        public bool pressed;
+        public bool isPressed;
+        
 
         void Awake()
         {
-        pressed = false;
             string buttonTag = this.name;
             child = this.gameObject.transform.Find("Cube");
             original = child.GetComponent<Renderer>().material;
-            
+            isPressed = false;
         }
 
         public void OnCollisionEnter(Collision collision)
         {
             child.GetComponent<Renderer>().material = emissive;
+            isPressed = true;
         }
 
-        private void OnCollisionExit(Collision collision)
+
+         private void OnCollisionExit(Collision collision)
         {
-            child.GetComponent<Renderer>().material = original;        
+            child.GetComponent<Renderer>().material = original;
+            isPressed = false;
         }
 
         public void OnCollisionStay(Collision collision)
         {
             child.GetComponent<Renderer>().material = emissive;
+            isPressed = true;
         }
-
 
         public IEnumerator CueLightUp()
         {

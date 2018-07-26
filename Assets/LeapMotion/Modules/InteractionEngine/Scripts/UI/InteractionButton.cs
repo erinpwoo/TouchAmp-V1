@@ -21,9 +21,6 @@ namespace Leap.Unity.Interaction {
   ///</summary>
   public class InteractionButton : InteractionBehaviour {
 
-        public bool isLit;
-        public Renderer rend;
-
     #region Inspector
 
         [Header("UI Control")]
@@ -207,7 +204,6 @@ namespace Leap.Unity.Interaction {
         enabled = false;
       }
 
-            isLit = false;
       // Initialize Positions
       initialLocalPosition = transform.localPosition;
       if (startingPositionMode == StartingPositionMode.Relaxed) {
@@ -278,7 +274,6 @@ namespace Leap.Unity.Interaction {
             //nd.material.Lerp(material, emission, lerp);
 
       SendToMaxMSP();
-      LightUp();
       // Reset our convenience state variables.
       _pressedThisFrame = false;
       _unpressedThisFrame = false;
@@ -576,29 +571,6 @@ namespace Leap.Unity.Interaction {
             }
     }
         
-
-        public void LightUp()
-        {
-            Debug.Log("entering lightup");
-
-            if (isLit == true)
-            {
-                //Debug.Log( name +" is Lit");
-                //rend.material = rend.materials[1];
-            }
-            else
-            {
-                //Debug.Log(name + " is not lit");
-                //rend.material = rend.materials[0];
-            } 
-
-        }
-
-
-        public void DisplayPattern()
-        {
-
-        }
         #endregion
 
     }
