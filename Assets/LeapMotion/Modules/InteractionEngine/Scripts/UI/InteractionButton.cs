@@ -21,7 +21,10 @@ namespace Leap.Unity.Interaction {
   ///</summary>
   public class InteractionButton : InteractionBehaviour {
 
-    #region Inspector
+        public GameController gameController;
+
+
+        #region Inspector
 
         [Header("UI Control")]
 
@@ -191,12 +194,7 @@ namespace Leap.Unity.Interaction {
     protected override void Start() {
 
 
-            //child = transform.GetChild(0);
-            /*rend = gameObject.GetComponentInChildren<Renderer>();
-            unlit = rend.sharedMaterials[0];
-            emission = rend.sharedMaterials[1];
-            rend.material = emission;
-            */
+            gameController = FindObjectOfType<GameController>();
 
 
             if (transform == transform.root) {
@@ -261,18 +259,8 @@ namespace Leap.Unity.Interaction {
     private const float FRICTION_COEFFICIENT = 30F;
     private const float DRAG_COEFFICIENT = 60F;
     protected virtual void Update() {
-      if (_isPressed == true)
-            {
-               
-            }
-      else
-            {
-              
-            }
 
-            float lerp = Mathf.PingPong(Time.time, 2.0F) / 2.0F;
-            //nd.material.Lerp(material, emission, lerp);
-
+      
       SendToMaxMSP();
       // Reset our convenience state variables.
       _pressedThisFrame = false;
@@ -405,18 +393,16 @@ namespace Leap.Unity.Interaction {
           primaryHoveringController.primaryHoverLocked = true;
           _lockedInteractingController = primaryHoveringController;
            SendToMaxMSP();
+           //gameController.addPressed(this.GetComponent<InteractionButton>());
+           //gameController.buttonIsPressed = true;
            OnPress();
           _pressedThisFrame = true;
 
         } else if (!isPressed && oldDepressed) {
           _unpressedThisFrame = true;
+           //gameController.buttonIsPressed = false;
           OnUnpress();
           
-          //GRASPING DISABLED
-          /*if (!(isGrasped && graspingController == _lockedInteractingController)) {
-            _lockedInteractingController.primaryHoverLocked = false;
-          }
-          */
 
           _lastDepressor = null;
         }
@@ -453,7 +439,11 @@ namespace Leap.Unity.Interaction {
       }
     }
 
-    protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true; }
+    protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true;
+            gameController.pressedButton = this;
+            gameController.addPressed(this); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
+            Debug.Log("Pressed button (GC): "+gameController.pressedButton);
+        }
     protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); }
     protected virtual void OnCollisionExit(Collision collision) { _isPressed = false; }
 
@@ -527,8 +517,6 @@ namespace Leap.Unity.Interaction {
             int preset = 36;
             if (this._isPressed == true)
             {
-                
-                Debug.Log("entering ispressed");
                 if (this.tag == "Button")
                 {
                     string buttonTag = this.name;

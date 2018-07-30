@@ -14,38 +14,28 @@ namespace Leap.Unity.Interaction
         int roundNum;
         bool isPlaying;
         public bool buttonIsPressed;
-        public GameObject pressedButton;
+        public InteractionButton pressedButton;
         public GameObject[] buttons; //fixed array of button indecies
+        public InteractionButton[] intButtons;
         List<MaterialChange> objects = new List<MaterialChange>();
         List<int> pattern = new List<int>(); //pattern 
-
-        //private UnityAction listener;
-
-        //private void OnEnable()
-        //{
-        //    EventManager.StartListening("ReturnPressed", listener);
-        //}
-
-        //private void OnDisable()
-        //{
-        //    EventManager.StopListening("ReturnPressed", listener);    
-        //}
-
-        //private void Awake()
-        //{
-        //    listener = new UnityAction(ReturnPressed);
-        //}
+        List<InteractionButton> pressedButtons = new List<InteractionButton>();
 
 
         // Use this for initialization
         void Start()
         {
 
+
             roundNum = 0;
             isPlaying = true;
             buttonIsPressed = false;
             buttons = GameObject.FindGameObjectsWithTag("Button");
-
+            intButtons = new InteractionButton[9];
+            for (int i = 0; i < intButtons.Length; i++)
+            {
+                intButtons[i] = buttons[i].GetComponent<InteractionButton>();
+            }
             for (int i = 0; i < buttons.Length; i++) //adding array of material change objects
             {
                 objects.Add(buttons[i].GetComponent<MaterialChange>());
@@ -84,47 +74,42 @@ namespace Leap.Unity.Interaction
         //figure dis shiz out HERE!!!!!!!!!!!!!!
         IEnumerator UsersTurn()
         {
-
-            yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
-
-            for (int i = 0; i < roundNum; i++)
+            
+            for (int i = 0; i < pattern.Count; i++)
             {
-                if (pressedButton == buttons[pattern[i]])
-                {
-                    buttonIsPressed = false;
-                    yield return new WaitUntil(() => buttonIsPressed = true);
+                Debug.Log("Entering Loop: "+i);
+                yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
+                 Debug.Log("Entering comparison");
+                if (pressedButtons[i] == intButtons[pattern[i]])
+                {                 
+                    Debug.Log("Correct button press");
+                    buttonIsPressed = false; //waits until user presses button
                 }
                 else
                 {
-                    isPlaying = false;
+                    Debug.Log("Wrong button pressed");
+                    break;
                 }
             }
+            
             
         }
 
         void playGame()
         {
-            while (isPlaying == true)
+            /*while (isPlaying == true)
             {
                 PlayPattern();
                 StartCoroutine(UsersTurn());
                 UpdatePattern();
-            }
+            }*/
 
         }
 
         // Update is called once per frame / and here too :C
         void Update()
         {
-            foreach (MaterialChange mat in objects)
-            {
-                if (mat.isPressed == true)
-                {
-                    buttonIsPressed = true;
-                    pressedButton = mat.GetComponent<GameObject>();
-                }
-            }
-
+            
             if (isPlaying == false)
             {
                 Debug.Log("Score: " + roundNum);
@@ -132,5 +117,13 @@ namespace Leap.Unity.Interaction
             }
         }
 
+        public void addPressed(InteractionButton obj) //used in interactionbutton under collision method
+        {
+            this.pressedButtons.Add(obj);
+            buttonIsPressed = true;
+        }
+
+
     }
+
 }

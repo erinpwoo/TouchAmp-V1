@@ -10,7 +10,6 @@ using UnityEngine;
         public Transform child;
         public Material original;
         public bool isPressed;
-        
 
         void Awake()
         {
@@ -45,5 +44,7 @@ using UnityEngine;
             yield return new WaitForSeconds(2);
             child.GetComponent<Renderer>().material = original;
         }
+
+        
     }
 
