@@ -525,8 +525,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &153973404
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -630,23 +630,6 @@ Transform:
   m_Father: {fileID: 1632254102}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &192144463 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1339460489974520, guid: dae2e2be31c98324eac460f702db97e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1571385842}
---- !u!114 &192144468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 192144463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db1b823017dcfd24ba99901c77a29fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
 --- !u!1 &195843560
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,8 +890,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &367774779
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1106,7 +1089,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &579528915
 Transform:
@@ -1480,8 +1463,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &693092470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1676,8 +1659,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -1721,6 +1703,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &832975664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,8 +1735,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -1860,8 +1844,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &833889697
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2066,8 +2050,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 0
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2206,6 +2189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &916596884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,8 +2221,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 1
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2345,8 +2330,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &935520265
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2435,8 +2420,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &944369784
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2495,8 +2480,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2540,6 +2524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: cd566f98794d59b4997db14d3345a0bf, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &980858621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2569,8 +2556,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2770,8 +2756,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2815,6 +2800,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &1114690221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2844,8 +2832,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3094,8 +3081,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3139,6 +3125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: f82cdb2480582d74682efd488346e40d, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &1399797894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3168,8 +3157,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3278,8 +3266,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3323,6 +3310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &1497035341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3352,8 +3342,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3529,7 +3518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4050235663507654, guid: dae2e2be31c98324eac460f702db97e9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4050235663507654, guid: dae2e2be31c98324eac460f702db97e9, type: 2}
       propertyPath: m_LocalScale.x
@@ -3776,8 +3765,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &1646836868
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3853,7 +3842,51 @@ Transform:
   - {fileID: 1587158424}
   - {fileID: 1773255934}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1694421864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1694421866}
+  - component: {fileID: 1694421865}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1694421865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694421864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1b823017dcfd24ba99901c77a29fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonIsPressed: 0
+  pressedButton: {fileID: 0}
+  buttons: []
+  intButtons: []
+--- !u!4 &1694421866
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694421864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.079718955, y: 0.01000011, z: -0.091835395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703618911
 GameObject:
@@ -3905,8 +3938,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3950,6 +3982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: cd99be566f081b24eae7229af89e3b44, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &1703618916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3979,8 +4014,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -4229,7 +4263,7 @@ Transform:
   - {fileID: 1797608563}
   - {fileID: 1725805742}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1844815234
 MonoBehaviour:
@@ -4455,8 +4489,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -4500,6 +4533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: abd16fbd414c24f4bbc48454fadfca8c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &1938299203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,8 +4565,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -4715,8 +4750,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &1963156147
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4849,8 +4884,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!33 &2037307124
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5111,8 +5146,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -5156,6 +5190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissive: {fileID: 2100000, guid: 443d0e055729051429599db3b3eeaad2, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
+  isPressed: 0
 --- !u!114 &2115037598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5185,8 +5222,7 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
-  isLit: 0
-  rend: {fileID: 0}
+  gameController: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}

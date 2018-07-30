@@ -45,8 +45,11 @@ namespace Leap.Unity.Interaction
             //playGame();
 
             //TESTING FUNCTIONS
-            UpdatePattern();
-            UpdatePattern();
+            for (int i = 0; i < 7; i++)
+            {
+                UpdatePattern();
+            }
+
             StartCoroutine(PlayPattern());
             StartCoroutine(UsersTurn());
 
