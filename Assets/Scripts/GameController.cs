@@ -83,6 +83,10 @@ namespace Leap.Unity.Interaction
             
             for (int i = 0; i < pattern.Count; i++) //total buttons that must be pressed to pass round
             {
+               
+
+                Debug.Log("Waiting for button to be pressed...");
+
                 yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
                 if (pressedButtons.Count != 0) //ensures stack isn't empty
                 {
@@ -90,7 +94,6 @@ namespace Leap.Unity.Interaction
                     if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
                     { 
                         Debug.Log("Correct Button pressed");
-                        yield return new WaitUntil(() => buttonIsPressed = false); //waits until user stops pressing button.
                         pressedButtons.Pop(); //pops and waits for new button press
                     }
                     else
@@ -103,7 +106,7 @@ namespace Leap.Unity.Interaction
                 {
                     Debug.Log("Error: Stack empty");
                 }
-
+                yield return new WaitUntil(() => buttonIsPressed == false);
             }
             
             
