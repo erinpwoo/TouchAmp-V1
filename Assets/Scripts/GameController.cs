@@ -45,7 +45,7 @@ namespace Leap.Unity.Interaction
             //playGame();
 
             //TESTING FUNCTIONS
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 3; i++)
             {
                 UpdatePattern();
             }
@@ -66,6 +66,7 @@ namespace Leap.Unity.Interaction
         //PlayPattern() works
         IEnumerator PlayPattern() //randomly generates and executes pattern 
         {
+            yield return new WaitForSeconds(10);
             for (int i = 0; i < pattern.Count; i++)
             {
                 StartCoroutine(buttons[pattern[i]].GetComponent<MaterialChange>().CueLightUp()); //selects Interaction button, applies LightUp()
