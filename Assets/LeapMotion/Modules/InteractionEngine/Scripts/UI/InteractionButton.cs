@@ -440,12 +440,16 @@ namespace Leap.Unity.Interaction {
     }
 
     protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true;
-            gameController.pressedButton = this;
-            gameController.addPressed(this); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
+            gameController.pressedButton = this.GetComponent<InteractionButton>();
+            gameController.addPressed(this.GetComponent<InteractionButton>()); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
             Debug.Log("Pressed button (GC): "+gameController.pressedButton);
+            gameController.buttonIsPressed = true;
         }
     protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); }
-    protected virtual void OnCollisionExit(Collision collision) { _isPressed = false; }
+    protected virtual void OnCollisionExit(Collision collision) {
+            _isPressed = false;
+            gameController.buttonIsPressed = false;
+        }
 
     // during Soft Contact, controller colliders are triggers
     protected virtual void OnTriggerEnter(Collider collider) { trySetDepressor(collider); }
