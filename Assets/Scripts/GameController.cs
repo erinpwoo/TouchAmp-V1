@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 namespace Leap.Unity.Interaction
 {
     public class GameController : MonoBehaviour
     {
+
+        public Text roundText;
+        public Text endText;
 
         int roundNum;
         bool isPlaying;
@@ -22,17 +26,19 @@ namespace Leap.Unity.Interaction
         private void Awake()
         {
             roundNum = 0;
+            setRoundText();
             isPlaying = true;
             buttonIsPressed = false;
             buttons = GameObject.FindGameObjectsWithTag("Button");
             intButtons = new InteractionButton[9];
+            endText.text = "";
         }
 
         // Use this for initialization
         void Start()
         {
 
-
+            
            
             for (int i = 0; i < intButtons.Length; i++)
             {
@@ -56,13 +62,16 @@ namespace Leap.Unity.Interaction
             StartCoroutine(UsersTurn());
 
             Debug.Log("roundNum: " + roundNum);
-        }
+            
+         }
 
 
         void UpdatePattern() //increments pattern list, adds new index to call upon -- works 
         {
             pattern.Add(Random.Range(0, 7));
             roundNum++;
+            setRoundText();
+            
         }
 
         //PlayPattern() works
@@ -75,6 +84,11 @@ namespace Leap.Unity.Interaction
                 Debug.Log("Playing pattern: " + buttons[pattern[i]]);
                 yield return new WaitForSeconds(2);
             }
+        }
+
+        void setRoundText()
+        {
+            roundText.text = "Round: " + roundNum.ToString();
         }
 
         //Stack implementation of user input comparison to pattern
@@ -99,6 +113,8 @@ namespace Leap.Unity.Interaction
                     else
                     {
                         Debug.Log("Wrong Button pressed. Display score: " + roundNum);
+                        roundText.text = "";
+                        endText.text = "Game over. Score: " + roundNum.ToString();
                         Application.Quit();
                     }
                 }
@@ -114,25 +130,16 @@ namespace Leap.Unity.Interaction
 
         void playGame()
         {
-            /*while (isPlaying == true)
+            while (isPlaying == true)
             {
-                PlayPattern();
+                StartCoroutine(PlayPattern());
                 StartCoroutine(UsersTurn());
                 UpdatePattern();
-            }*/
-
-        }
-
-        // Update is called once per frame / and here too :C
-        void Update()
-        {
-            
-            if (isPlaying == false)
-            {
-                Debug.Log("Score: " + roundNum);
-                Application.Quit();
             }
+            roundText.text = "";
+            endText.text = "Game Over. Score: " + roundNum.ToString();
         }
+
 
         public void addPressed(InteractionButton obj) //used in interactionbutton under collision method
         {
