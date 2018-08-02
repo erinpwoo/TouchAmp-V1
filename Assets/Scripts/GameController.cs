@@ -11,6 +11,7 @@ namespace Leap.Unity.Interaction
 
         public Text roundText;
         public Text endText;
+        public Text statusText;
 
         int roundNum;
         bool isPlaying;
@@ -49,7 +50,8 @@ namespace Leap.Unity.Interaction
                 objects.Add(buttons[i].GetComponent<MaterialChange>());
             }
 
-            pattern.Add(Random.Range(0, 3));
+            UpdatePattern();
+            StartCoroutine(PlayPattern());
             StartCoroutine(playGame());
             
          }
@@ -67,10 +69,12 @@ namespace Leap.Unity.Interaction
         IEnumerator PlayPattern() //randomly generates and executes pattern 
         {
             //Debug.Log(pattern.Count +" " + buttons.Length);
-            yield return new WaitForSeconds(10);
+            statusText.text = "Waiting...";
+            yield return new WaitForSeconds(8);
             
             for (int i = 0; i < pattern.Count; i++)
             {
+                statusText.text = "Playing pattern";
                 StartCoroutine(buttons[pattern[i]].GetComponent<MaterialChange>().CueLightUp()); //selects Interaction button, applies LightUp()
                 Debug.Log("Playing pattern: " + buttons[pattern[i]]);
                 yield return new WaitForSeconds(2);
@@ -88,51 +92,31 @@ namespace Leap.Unity.Interaction
             
             for (int i = 0; i < pattern.Count; i++) //total buttons that must be pressed to pass round
             {
-               
+                statusText.text = "Your turn!";
 
                 Debug.Log("Waiting for button to be pressed...");
 
                 yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
-                if (pressedButtons.Count != 0) //ensures stack isn't empty
-                {
-                    Debug.Log("button in stack: " + pressedButtons.Peek() + "     button to be pressed " + intButtons[pattern[i]]);
-                    if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
-                    { 
-                        Debug.Log("Correct Button pressed");
-                        pressedButtons.Pop(); //pops and waits for new button press
-                    }
-                    else
-                    {
-                        Debug.Log("Wrong Button pressed. Display score: " + roundNum);
-                        roundText.text = "";
-                        endText.text = "Game over. Score: " + roundNum.ToString();
-                        isPlaying = false;
-                        Application.Quit();
-                    }
+                Debug.Log("button in stack: " + pressedButtons.Peek() + "     button to be pressed " + intButtons[pattern[i]]);
+                if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
+                { 
+                    Debug.Log("Correct Button pressed");
+                    pressedButtons.Pop(); //pops and waits for new button press
+                    //yield return new WaitUntil(() => buttonIsPressed == false);
                 }
                 else
                 {
-                    Debug.Log("Error: Stack empty");
+                    statusText.text = "Wrong button press! GG";
+                    Debug.Log("Wrong Button pressed. Display score: " + roundNum);
+                    roundText.text = "";
+                    endText.text = "Game over. Score: " + roundNum.ToString();
+                    isPlaying = false;
+                    Application.Quit();
+                    break;
                 }
-                yield return new WaitUntil(() => buttonIsPressed == false);
                 
             }
-            Debug.Log("Nice! Next round.");
-            UpdatePattern();
-            
         }
-
-        IEnumerator playGame()
-        {
-            while (isPlaying == true)
-            {
-                yield return StartCoroutine(PlayPattern());
-                yield return StartCoroutine(UsersTurn());
-            }
-            
-
-        }
-
 
         public void addPressed(InteractionButton obj) //used in interactionbutton under collision method
         {
@@ -140,6 +124,16 @@ namespace Leap.Unity.Interaction
             buttonIsPressed = true;
         }
 
+        IEnumerator playGame()
+        {
+            while (isPlaying == true)
+            {
+                UpdatePattern();
+                yield return StartCoroutine(PlayPattern());
+                yield return StartCoroutine(UsersTurn());
+            }
+            
+        }
 
     }
 
