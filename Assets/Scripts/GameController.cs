@@ -50,15 +50,20 @@ namespace Leap.Unity.Interaction
                 objects.Add(buttons[i].GetComponent<MaterialChange>());
             }
 
-            pattern.Add(Random.Range(0, 3));
-            StartCoroutine(PlayPattern());
-            StartCoroutine(playGame());
-            
+            StartCoroutine(StartFunc());
          }
 
+        IEnumerator StartFunc()
+        {
+            pattern.Add(Random.Range(0, 3));
+            yield return StartCoroutine(PlayPattern());
+            yield return StartCoroutine(UsersTurn());
+            yield return StartCoroutine(playGame());
+        }
 
         void UpdatePattern() //increments pattern list, adds new index to call upon -- works 
         {
+            
             pattern.Add(Random.Range(0, 3));
             roundNum++;
             setRoundText();
@@ -97,24 +102,30 @@ namespace Leap.Unity.Interaction
                 Debug.Log("Waiting for button to be pressed...");
 
                 yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
-                Debug.Log("button in stack: " + pressedButtons.Peek() + "     button to be pressed " + intButtons[pattern[i]]);
-                if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
-                { 
-                    Debug.Log("Correct Button pressed");
-                    pressedButtons.Pop(); //pops and waits for new button press
-                    //yield return new WaitUntil(() => buttonIsPressed == false);
-                }
-                else
+                if (pressedButtons.Count != 0)
                 {
-                    statusText.text = "Wrong button press! GG";
-                    Debug.Log("Wrong Button pressed. Display score: " + roundNum);
-                    roundText.text = "";
-                    endText.text = "Game over. Score: " + roundNum.ToString();
-                    isPlaying = false;
-                    Application.Quit();
-                    break;
+                    Debug.Log("button in stack: " + pressedButtons.Peek() + "     button to be pressed " + intButtons[pattern[i]]);
+                    if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
+                    { 
+                        Debug.Log("Correct Button pressed");
+                        pressedButtons.Pop(); //pops and waits for new button press
+
+                        //yield return new WaitUntil(() => buttonIsPressed == false);
+                    }
+                    else
+                    {
+                        statusText.text = "Wrong button press! GG";
+                        Debug.Log("Wrong Button pressed. Display score: " + roundNum);
+                        roundText.text = "";
+                        endText.text = "Game over. Score: " + roundNum.ToString();
+                        isPlaying = false;
+                        Application.Quit();
+                        break;
+                    }
+                } else
+                {
+                    Debug.Log("Stack overflow");
                 }
-                
             }
         }
 
@@ -125,14 +136,11 @@ namespace Leap.Unity.Interaction
             Debug.Log("Button added to stack: " + obj);
         }
 
-        IEnumerator playGame()
+        IEnumerator playGame() //ISSUE HERE.
         {
-            while (isPlaying == true)
-            {
-                UpdatePattern();
-                yield return StartCoroutine(PlayPattern());
-                yield return StartCoroutine(UsersTurn());
-            }
+            UpdatePattern();
+            yield return StartCoroutine(PlayPattern());
+            yield return StartCoroutine(UsersTurn());
             
         }
 

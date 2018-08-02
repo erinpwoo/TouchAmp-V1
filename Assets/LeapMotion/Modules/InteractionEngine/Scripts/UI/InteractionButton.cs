@@ -442,20 +442,21 @@ namespace Leap.Unity.Interaction {
 
         protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true; //issue here-- adding too many buttons to the stack
             
-            if (pressedOnce == false)
+            if (this.pressedOnce == false)
             {
+                this.pressedOnce = true;
                 gameController.pressedButton = this.GetComponent<InteractionButton>();
                 gameController.addPressed(this.GetComponent<InteractionButton>()); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
                 Debug.Log("Pressed button (GC): "+gameController.pressedButton);
                 gameController.buttonIsPressed = true;
-                pressedOnce = true;
             }
         }
 
-        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); pressedOnce = true; }
+        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); this.pressedOnce = true; }
         protected virtual void OnCollisionExit(Collision collision) { _isPressed = false;
-             gameController.buttonIsPressed = false;
-             pressedOnce = false;
+            this.pressedOnce = false;
+            gameController.buttonIsPressed = false;
+
         }
 
     // during Soft Contact, controller colliders are triggers
