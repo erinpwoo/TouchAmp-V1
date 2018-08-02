@@ -49,11 +49,11 @@ namespace Leap.Unity.Interaction
                 objects.Add(buttons[i].GetComponent<MaterialChange>());
             }
 
-            pattern.Add(Random.Range(0, 7));
-            //playGame();
+            pattern.Add(Random.Range(0, 3));
+            playGame();
 
             //TESTING FUNCTIONS
-            for (int i = 0; i < 3; i++)
+            /*for (int i = 0; i < 3; i++)
             {
                 UpdatePattern();
             }
@@ -61,7 +61,7 @@ namespace Leap.Unity.Interaction
             StartCoroutine(PlayPattern());
             StartCoroutine(UsersTurn());
 
-            Debug.Log("roundNum: " + roundNum);
+            Debug.Log("roundNum: " + roundNum);*/
             
          }
 
@@ -77,7 +77,9 @@ namespace Leap.Unity.Interaction
         //PlayPattern() works
         IEnumerator PlayPattern() //randomly generates and executes pattern 
         {
+            //Debug.Log(pattern.Count +" " + buttons.Length);
             yield return new WaitForSeconds(10);
+            
             for (int i = 0; i < pattern.Count; i++)
             {
                 StartCoroutine(buttons[pattern[i]].GetComponent<MaterialChange>().CueLightUp()); //selects Interaction button, applies LightUp()
@@ -130,14 +132,9 @@ namespace Leap.Unity.Interaction
 
         void playGame()
         {
-            while (isPlaying == true)
-            {
-                StartCoroutine(PlayPattern());
-                StartCoroutine(UsersTurn());
-                UpdatePattern();
-            }
-            roundText.text = "";
-            endText.text = "Game Over. Score: " + roundNum.ToString();
+            StartCoroutine(PlayPattern());
+            //roundText.text = "";
+            //endText.text = "Game Over. Score: " + roundNum.ToString();
         }
 
 
