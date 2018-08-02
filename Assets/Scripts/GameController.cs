@@ -30,7 +30,7 @@ namespace Leap.Unity.Interaction
             isPlaying = true;
             buttonIsPressed = false;
             buttons = GameObject.FindGameObjectsWithTag("Button");
-            intButtons = new InteractionButton[9];
+            intButtons = new InteractionButton[4];
             endText.text = "";
         }
 
@@ -68,7 +68,7 @@ namespace Leap.Unity.Interaction
 
         void UpdatePattern() //increments pattern list, adds new index to call upon -- works 
         {
-            pattern.Add(Random.Range(0, 7));
+            pattern.Add(Random.Range(0, 3));
             roundNum++;
             setRoundText();
             

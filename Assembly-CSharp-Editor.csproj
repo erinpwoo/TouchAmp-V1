@@ -125,9 +125,18 @@
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\UI\Editor\InteractionButtonEditor.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\UI\Editor\InteractionSliderEditor.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Scripts\Utility\Editor\IgnoreColliderForInteractionEditor.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRBuild.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVREngineConfigurationUpdater.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRLayerAttributeEditor.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRManifestPreprocessor.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRPluginUpdater.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRPluginUpdaterStub.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRScreenshotWizard.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor.cs" />
     <Compile Include="Assets\RockVR\Video\Editor\VideoCaptureEditor.cs" />
     <Compile Include="Assets\RockVR\Video\Editor\VideoCaptureMenuEditor.cs" />
     <Compile Include="Assets\UnityOSC-master-src\Editor\OSCHelper.cs" />
+    <None Include="Assets\Oculus\VR\Editor\AndroidManifest.OVRSubmission.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Anzu/Documents/GitHub/TouchAmp-V1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
