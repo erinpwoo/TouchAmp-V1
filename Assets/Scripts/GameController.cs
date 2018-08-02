@@ -50,18 +50,7 @@ namespace Leap.Unity.Interaction
             }
 
             pattern.Add(Random.Range(0, 3));
-            playGame();
-
-            //TESTING FUNCTIONS
-            /*for (int i = 0; i < 3; i++)
-            {
-                UpdatePattern();
-            }
-
-            StartCoroutine(PlayPattern());
-            StartCoroutine(UsersTurn());
-
-            Debug.Log("roundNum: " + roundNum);*/
+            StartCoroutine(playGame());
             
          }
 
@@ -117,6 +106,7 @@ namespace Leap.Unity.Interaction
                         Debug.Log("Wrong Button pressed. Display score: " + roundNum);
                         roundText.text = "";
                         endText.text = "Game over. Score: " + roundNum.ToString();
+                        isPlaying = false;
                         Application.Quit();
                     }
                 }
@@ -125,16 +115,22 @@ namespace Leap.Unity.Interaction
                     Debug.Log("Error: Stack empty");
                 }
                 yield return new WaitUntil(() => buttonIsPressed == false);
+                
             }
-            
+            Debug.Log("Nice! Next round.");
+            UpdatePattern();
             
         }
 
-        void playGame()
+        IEnumerator playGame()
         {
-            StartCoroutine(PlayPattern());
-            //roundText.text = "";
-            //endText.text = "Game Over. Score: " + roundNum.ToString();
+            while (isPlaying == true)
+            {
+                yield return StartCoroutine(PlayPattern());
+                yield return StartCoroutine(UsersTurn());
+            }
+            
+
         }
 
 
