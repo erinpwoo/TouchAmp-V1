@@ -50,7 +50,7 @@ namespace Leap.Unity.Interaction
                 objects.Add(buttons[i].GetComponent<MaterialChange>());
             }
 
-            UpdatePattern();
+            pattern.Add(Random.Range(0, 3));
             StartCoroutine(PlayPattern());
             StartCoroutine(playGame());
             
@@ -70,7 +70,7 @@ namespace Leap.Unity.Interaction
         {
             //Debug.Log(pattern.Count +" " + buttons.Length);
             statusText.text = "Waiting...";
-            yield return new WaitForSeconds(8);
+            yield return new WaitForSeconds(7);
             
             for (int i = 0; i < pattern.Count; i++)
             {
@@ -122,6 +122,7 @@ namespace Leap.Unity.Interaction
         {
             this.pressedButtons.Push(obj);
             buttonIsPressed = true;
+            Debug.Log("Button added to stack: " + obj);
         }
 
         IEnumerator playGame()

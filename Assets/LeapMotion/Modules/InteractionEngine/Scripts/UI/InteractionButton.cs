@@ -22,6 +22,7 @@ namespace Leap.Unity.Interaction {
   public class InteractionButton : InteractionBehaviour {
 
         public GameController gameController;
+        public bool pressedOnce;
 
 
         #region Inspector
@@ -193,7 +194,7 @@ namespace Leap.Unity.Interaction {
 
     protected override void Start() {
 
-
+            pressedOnce = false;
             gameController = FindObjectOfType<GameController>();
 
 
@@ -439,18 +440,22 @@ namespace Leap.Unity.Interaction {
       }
     }
 
-        protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true;
+        protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true; //issue here-- adding too many buttons to the stack
             
-            gameController.pressedButton = this.GetComponent<InteractionButton>();
-            gameController.addPressed(this.GetComponent<InteractionButton>()); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
-            Debug.Log("Pressed button (GC): "+gameController.pressedButton);
-            gameController.buttonIsPressed = true;
-
+            if (pressedOnce == false)
+            {
+                gameController.pressedButton = this.GetComponent<InteractionButton>();
+                gameController.addPressed(this.GetComponent<InteractionButton>()); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
+                Debug.Log("Pressed button (GC): "+gameController.pressedButton);
+                gameController.buttonIsPressed = true;
+                pressedOnce = true;
+            }
         }
 
-        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); }
+        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); pressedOnce = true; }
         protected virtual void OnCollisionExit(Collision collision) { _isPressed = false;
              gameController.buttonIsPressed = false;
+             pressedOnce = false;
         }
 
     // during Soft Contact, controller colliders are triggers

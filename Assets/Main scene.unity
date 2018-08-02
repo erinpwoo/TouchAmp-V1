@@ -652,11 +652,11 @@ RectTransform:
   m_Father: {fileID: 1101404738}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: -45}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -480, y: 77}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &232520244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,8 +686,8 @@ MonoBehaviour:
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Status Text
 --- !u!222 &232520245
@@ -907,7 +907,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.7}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0.45}
 --- !u!33 &367774779
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1450,7 +1450,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.7}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0.45}
 --- !u!33 &693092470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1646,6 +1646,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -1722,6 +1723,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -1947,6 +1949,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 0
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2118,6 +2121,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2227,7 +2231,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.7}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0.45}
 --- !u!33 &935520265
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2504,6 +2508,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2580,6 +2585,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2933,6 +2939,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -3009,6 +3016,7 @@ MonoBehaviour:
   _eventTable:
     _entries: []
   gameController: {fileID: 0}
+  pressedOnce: 0
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3378,7 +3386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3388,15 +3396,15 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 40
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: End Text
 --- !u!222 &1609019799
@@ -3538,6 +3546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundText: {fileID: 1187093535}
   endText: {fileID: 1609019798}
+  statusText: {fileID: 232520244}
   buttonIsPressed: 0
   pressedButton: {fileID: 0}
   buttons: []
@@ -4132,7 +4141,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.7}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0.45}
 --- !u!33 &2037307124
 MeshFilter:
   m_ObjectHideFlags: 0
