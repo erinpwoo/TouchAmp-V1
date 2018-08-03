@@ -12,6 +12,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Leap.Unity.Interaction {
 
@@ -23,6 +25,9 @@ namespace Leap.Unity.Interaction {
 
         public GameController gameController;
         public bool pressedOnce;
+        public Material emissive;
+        public Transform child;
+        public Material original;
 
 
         #region Inspector
@@ -163,11 +168,11 @@ namespace Leap.Unity.Interaction {
     private Quaternion _initialLocalRotation;
     private InteractionController _lockedInteractingController = null;
 
-    #endregion
+        #endregion
 
-    #region Unity Events
+        #region Unity Events
 
-    void Reset() {
+        void Reset() {
       contactForceMode = ContactForceMode.UI;
       graspedMovementType = GraspedMovementType.Nonkinematic;
 
@@ -194,8 +199,12 @@ namespace Leap.Unity.Interaction {
 
     protected override void Start() {
 
+            string buttonTag = this.name;
+            child = this.gameObject.transform.Find("Cube");
+            original = child.GetComponent<Renderer>().material;
+
             pressedOnce = false;
-            gameController = FindObjectOfType<GameController>();
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
 
             if (transform == transform.root) {
@@ -442,21 +451,30 @@ namespace Leap.Unity.Interaction {
 
         protected virtual void OnCollisionEnter(Collision collision) { trySetDepressor(collision.collider); _isPressed = true; //issue here-- adding too many buttons to the stack
             
+            Debug.Log(collision+ " enter");
             if (this.pressedOnce == false)
             {
+                Debug.Log("collision: " + this.name);
                 this.pressedOnce = true;
                 gameController.pressedButton = this.GetComponent<InteractionButton>();
                 gameController.addPressed(this.GetComponent<InteractionButton>()); //ADDS INTERACTION BUTTON TO LIST WHEN PRESSED
                 Debug.Log("Pressed button (GC): "+gameController.pressedButton);
                 gameController.buttonIsPressed = true;
             }
+
+            child.GetComponent<Renderer>().material = emissive;
         }
 
-        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); this.pressedOnce = true; }
+        protected virtual void OnCollisionStay(Collision collision) { trySetDepressor(collision.collider); this.pressedOnce = true; child.GetComponent<Renderer>().material = emissive; }
         protected virtual void OnCollisionExit(Collision collision) { _isPressed = false;
-            this.pressedOnce = false;
-            gameController.buttonIsPressed = false;
+            Debug.Log(collision + " exit");
+            if (this.pressedOnce == true)
+            {
+                this.pressedOnce = false;
+                gameController.buttonIsPressed = false;
+            }
 
+            child.GetComponent<Renderer>().material = original;
         }
 
     // during Soft Contact, controller colliders are triggers
@@ -570,7 +588,15 @@ namespace Leap.Unity.Interaction {
                 OSCHandler.Instance.SendMessageToClient("MaxMSP", "/boo", preset);
             }
     }
-        
+
+
+        public IEnumerator CueLightUp()
+        {
+            child.GetComponent<Renderer>().material = emissive;
+            yield return new WaitForSeconds(2);
+            child.GetComponent<Renderer>().material = original;
+        }
+
         #endregion
 
     }

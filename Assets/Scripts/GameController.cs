@@ -19,7 +19,6 @@ namespace Leap.Unity.Interaction
         public InteractionButton pressedButton;
         public GameObject[] buttons; //fixed array of button indecies
         public InteractionButton[] intButtons;
-        List<MaterialChange> objects = new List<MaterialChange>();
         List<int> pattern = new List<int>(); //pattern 
         Stack<InteractionButton> pressedButtons = new Stack<InteractionButton>();
 
@@ -44,10 +43,6 @@ namespace Leap.Unity.Interaction
             for (int i = 0; i < intButtons.Length; i++)
             {
                 intButtons[i] = buttons[i].GetComponent<InteractionButton>();
-            }
-            for (int i = 0; i < buttons.Length; i++) //adding array of material change objects
-            {
-                objects.Add(buttons[i].GetComponent<MaterialChange>());
             }
 
             StartCoroutine(StartFunc());
@@ -80,7 +75,7 @@ namespace Leap.Unity.Interaction
             for (int i = 0; i < pattern.Count; i++)
             {
                 statusText.text = "Playing pattern";
-                StartCoroutine(buttons[pattern[i]].GetComponent<MaterialChange>().CueLightUp()); //selects Interaction button, applies LightUp()
+                StartCoroutine(buttons[pattern[i]].GetComponent<InteractionButton>().CueLightUp()); //selects Interaction button, applies LightUp()
                 Debug.Log("Playing pattern: " + buttons[pattern[i]]);
                 yield return new WaitForSeconds(2);
             }
@@ -136,7 +131,7 @@ namespace Leap.Unity.Interaction
             Debug.Log("Button added to stack: " + obj);
         }
 
-        IEnumerator playGame() //ISSUE HERE.
+        IEnumerator playGame()
         {
             UpdatePattern();
             yield return StartCoroutine(PlayPattern());

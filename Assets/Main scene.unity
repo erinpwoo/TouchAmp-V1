@@ -1607,7 +1607,6 @@ GameObject:
   - component: {fileID: 832975661}
   - component: {fileID: 832975660}
   - component: {fileID: 832975664}
-  - component: {fileID: 832975662}
   m_Layer: 0
   m_Name: Green Button
   m_TagString: Button
@@ -1647,6 +1646,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -1678,21 +1680,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &832975662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 832975659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissive: {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
-  child: {fileID: 0}
-  original: {fileID: 0}
-  isPressed: 0
 --- !u!114 &832975664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,6 +1711,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 06f44ccccc91f054a931adc5498b8ada, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -1895,7 +1885,6 @@ GameObject:
   - component: {fileID: 916596879}
   - component: {fileID: 916596881}
   - component: {fileID: 916596884}
-  - component: {fileID: 916596882}
   m_Layer: 0
   m_Name: Orange Button
   m_TagString: Button
@@ -1950,6 +1939,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 0
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2076,21 +2068,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &916596882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 916596877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissive: {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
-  child: {fileID: 0}
-  original: {fileID: 0}
-  isPressed: 0
 --- !u!114 &916596884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,6 +2099,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 1a4d625b3a0510f4b8f5c4ec7d51673c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2469,7 +2449,6 @@ GameObject:
   - component: {fileID: 1114690218}
   - component: {fileID: 1114690217}
   - component: {fileID: 1114690221}
-  - component: {fileID: 1114690219}
   m_Layer: 0
   m_Name: Blue Button
   m_TagString: Button
@@ -2509,6 +2488,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2540,21 +2522,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1114690219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114690216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissive: {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
-  child: {fileID: 0}
-  original: {fileID: 0}
-  isPressed: 0
 --- !u!114 &1114690221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2586,6 +2553,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 8233e5550fa2e75448c8440f3135a8e8, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -2900,7 +2870,6 @@ GameObject:
   - component: {fileID: 1497035338}
   - component: {fileID: 1497035337}
   - component: {fileID: 1497035341}
-  - component: {fileID: 1497035339}
   m_Layer: 0
   m_Name: Red Button
   m_TagString: Button
@@ -2940,6 +2909,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 0
   minMaxHeight: {x: 0, y: 0.02}
@@ -2971,21 +2943,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1497035339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1497035336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77c7c2e07174a647a19052982e6b5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissive: {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
-  child: {fileID: 0}
-  original: {fileID: 0}
-  isPressed: 0
 --- !u!114 &1497035341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3017,6 +2974,9 @@ MonoBehaviour:
     _entries: []
   gameController: {fileID: 0}
   pressedOnce: 0
+  emissive: {fileID: 2100000, guid: 873c513363d7e9e4f8e398a4c989089c, type: 2}
+  child: {fileID: 0}
+  original: {fileID: 0}
   _controlEnabled: 1
   startingPositionMode: 1
   minMaxHeight: {x: 0, y: 0.02}
@@ -3528,7 +3488,7 @@ GameObject:
   - component: {fileID: 1694421865}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
