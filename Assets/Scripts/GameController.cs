@@ -23,6 +23,7 @@ namespace Leap.Unity.Interaction
         Stack<InteractionButton> pressedButtons = new Stack<InteractionButton>();
 
 
+
         private void Awake()
         {
             roundNum = 0;
@@ -89,37 +90,40 @@ namespace Leap.Unity.Interaction
         //Stack implementation of user input comparison to pattern
         IEnumerator UsersTurn()
         {
-            
             for (int i = 0; i < pattern.Count; i++) //total buttons that must be pressed to pass round
             {
                 statusText.text = "Your turn!";
 
                 Debug.Log("Waiting for button to be pressed...");
-
-                yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
-                if (pressedButtons.Count != 0)
+                Debug.Log("pattern: "+intButtons[pattern[i]]);
+                
+                for (int j = 0; j < pattern.Count; j++)
                 {
-                    Debug.Log("button in stack: " + pressedButtons.Peek() + "     button to be pressed " + intButtons[pattern[i]]);
-                    if (pressedButtons.Peek() == intButtons[pattern[i]]) //checks top of stack and compares to button that should be pressed
-                    { 
-                        Debug.Log("Correct Button pressed");
-                        pressedButtons.Pop(); //pops and waits for new button press
-
-                        //yield return new WaitUntil(() => buttonIsPressed == false);
+                    yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
+                    if (pressedButtons.Count != 0)
+                    {
+                        Debug.Log("Peek: " + pressedButtons.Peek() + "     Pattern: " + intButtons[pattern[i]]);
+                        if (pressedButtons.Peek() == intButtons[pattern[j]]) //checks top of stack and compares to button that should be pressed
+                        { 
+                            Debug.Log("Correct Button pressed");
+                            pressedButtons.Pop(); //pops and waits for new button press
+                        }
+                        else
+                        {
+                            Debug.Log("Stack peek else: " + pressedButtons.Peek());
+                            statusText.text = "Wrong button press! GG";
+                            Debug.Log("Wrong Button pressed. Display score: " + roundNum);
+                            roundText.text = "";
+                            endText.text = "Game over. Score: " + roundNum.ToString();
+                            isPlaying = false;
+                            Application.Quit();
+                            break;
+                        }
                     }
                     else
                     {
-                        statusText.text = "Wrong button press! GG";
-                        Debug.Log("Wrong Button pressed. Display score: " + roundNum);
-                        roundText.text = "";
-                        endText.text = "Game over. Score: " + roundNum.ToString();
-                        isPlaying = false;
-                        Application.Quit();
-                        break;
+                        Debug.Log("Stack overflow");
                     }
-                } else
-                {
-                    Debug.Log("Stack overflow");
                 }
             }
         }
