@@ -62,7 +62,10 @@ namespace Leap.Unity.Interaction
             pattern.Add(Random.Range(0, 3));
             roundNum++;
             setRoundText();
-            
+            if (buttonIsPressed == true)
+            {
+                Quit();
+            }
         }
 
         //PlayPattern() works
@@ -70,12 +73,21 @@ namespace Leap.Unity.Interaction
         {
             //Debug.Log(pattern.Count +" " + buttons.Length);
             statusText.text = "Waiting...";
+            if (buttonIsPressed == true)
+                {
+                    Quit();
+                }
             yield return new WaitForSeconds(7);
             
             for (int i = 0; i < pattern.Count; i++)
             {
+                if (buttonIsPressed == true)
+                {
+                    Quit();
+                }
                 statusText.text = "Playing pattern";
                 StartCoroutine(buttons[pattern[i]].GetComponent<InteractionButton>().CueLightUp()); //selects Interaction button, applies LightUp()
+                yield return new WaitForSeconds(.5f);
                 Debug.Log("Playing pattern: " + buttons[pattern[i]]);
                 yield return new WaitForSeconds(2);
             }
@@ -101,6 +113,7 @@ namespace Leap.Unity.Interaction
                 statusText.text = "Your turn!";
 
                 yield return new WaitUntil(() => buttonIsPressed == true);
+
                 if (pressedButtons.Count != 0)
                 {
                     if (pressedButtons.Peek() == intButtons[pattern[i]])
