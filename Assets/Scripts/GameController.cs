@@ -94,38 +94,31 @@ namespace Leap.Unity.Interaction
             {
                 statusText.text = "Your turn!";
 
-                Debug.Log("Waiting for button to be pressed...");
-                Debug.Log("pattern: "+intButtons[pattern[i]]);
-                
-                for (int j = 0; j < pattern.Count; j++)
+                yield return new WaitUntil(() => buttonIsPressed == true);
+                if (pressedButtons.Count != 0)
                 {
-                    yield return new WaitUntil(() => buttonIsPressed == true); //waits until user presses button
-                    if (pressedButtons.Count != 0)
+                    if (pressedButtons.Peek() == intButtons[pattern[i]])
                     {
-                        Debug.Log("Peek: " + pressedButtons.Peek() + "     Pattern: " + intButtons[pattern[i]]);
-                        if (pressedButtons.Peek() == intButtons[pattern[j]]) //checks top of stack and compares to button that should be pressed
-                        { 
-                            Debug.Log("Correct Button pressed");
-                            pressedButtons.Pop(); //pops and waits for new button press
-                        }
-                        else
-                        {
-                            Debug.Log("Stack peek else: " + pressedButtons.Peek());
-                            statusText.text = "Wrong button press! GG";
-                            Debug.Log("Wrong Button pressed. Display score: " + roundNum);
-                            roundText.text = "";
-                            endText.text = "Game over. Score: " + roundNum.ToString();
-                            isPlaying = false;
-                            Application.Quit();
-                            break;
-                        }
+                        yield return new WaitUntil(() => buttonIsPressed == false);
+                        pressedButtons.Pop();
                     }
                     else
                     {
-                        Debug.Log("Stack overflow");
+                        endText.text = "Game Over. Score: " + roundNum.ToString();
+                        roundText.text = "";
+                        statusText.text = "";
+                        break;
                     }
                 }
+                else
+                {
+                    Debug.Log("Stack overflow");
+                    break;
+                }
+                
             }
+            statusText.text = "Nice! Next round ...";
+            StartCoroutine(playGame());
         }
 
         public void addPressed(InteractionButton obj) //used in interactionbutton under collision method
