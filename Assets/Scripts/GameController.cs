@@ -39,8 +39,6 @@ namespace Leap.Unity.Interaction
         void Start()
         {
 
-            
-           
             for (int i = 0; i < intButtons.Length; i++)
             {
                 intButtons[i] = buttons[i].GetComponent<InteractionButton>();
@@ -52,9 +50,10 @@ namespace Leap.Unity.Interaction
         IEnumerator StartFunc()
         {
             pattern.Add(Random.Range(0, 3));
+            roundNum++;
+            setRoundText();
             yield return StartCoroutine(PlayPattern());
             yield return StartCoroutine(UsersTurn());
-            yield return StartCoroutine(playGame());
         }
 
         void UpdatePattern() //increments pattern list, adds new index to call upon -- works 
@@ -82,6 +81,13 @@ namespace Leap.Unity.Interaction
             }
         }
 
+        public static void Quit()
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+
+        }
+
         void setRoundText()
         {
             roundText.text = "Round: " + roundNum.ToString();
@@ -104,10 +110,12 @@ namespace Leap.Unity.Interaction
                     }
                     else
                     {
+                        Debug.Log("Correct button press: " + intButtons[pattern[i]]);
                         endText.text = "Game Over. Score: " + roundNum.ToString();
                         roundText.text = "";
                         statusText.text = "";
-                        break;
+                        yield return new WaitForSeconds(3);
+                        Quit();
                     }
                 }
                 else
