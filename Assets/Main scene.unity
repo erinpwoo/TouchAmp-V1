@@ -1148,7 +1148,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 589658169}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.4527043, z: -0.000026069582}
+  m_LocalPosition: {x: -1.1019999, y: -0.4527043, z: -0.000026069582}
   m_LocalScale: {x: 0.049595505, y: 0.027779855, z: 0.039229803}
   m_Children: []
   m_Father: {fileID: 1632254102}
@@ -1289,7 +1289,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 617688995}
   m_LocalRotation: {x: 0.681863, y: -0, z: -0, w: 0.73148}
-  m_LocalPosition: {x: 0, y: -0.46000007, z: -0.054000005}
+  m_LocalPosition: {x: -1.102, y: -0.46000007, z: -0.054000005}
   m_LocalScale: {x: 0.03772023, y: 0.08794854, z: 0.024900509}
   m_Children: []
   m_Father: {fileID: 2062670902}
@@ -1485,7 +1485,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715507209}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.4527043, z: -0.000026069582}
+  m_LocalPosition: {x: -1.1019999, y: -0.4527043, z: -0.000026069582}
   m_LocalScale: {x: 0.049595505, y: 0.027779855, z: 0.039229803}
   m_Children: []
   m_Father: {fileID: 591126375}
@@ -2261,7 +2261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1114329673}
   m_LocalRotation: {x: 0.681863, y: -0, z: -0, w: 0.73148}
-  m_LocalPosition: {x: 0, y: -0.46, z: -0.054}
+  m_LocalPosition: {x: -1.1019999, y: -0.46, z: -0.054}
   m_LocalScale: {x: 0.03772023, y: 0.08794854, z: 0.024900509}
   m_Children: []
   m_Father: {fileID: 835000675}
@@ -2823,7 +2823,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.4056604, g: 0.3362528, b: 0.1511659, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3298,7 +3298,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1705304353}
   m_LocalRotation: {x: 0.37552947, y: -0, z: -0, w: 0.9268105}
-  m_LocalPosition: {x: -0.0136, y: -0.48250008, z: -0.0006000027}
+  m_LocalPosition: {x: -1.1155999, y: -0.48250008, z: -0.0006000027}
   m_LocalScale: {x: 0.026544102, y: 0.048007872, z: 0.037522316}
   m_Children: []
   m_Father: {fileID: 298809356}
@@ -3884,7 +3884,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2043550496}
   m_LocalRotation: {x: 0.37552947, y: -0, z: -0, w: 0.9268105}
-  m_LocalPosition: {x: 0.0125, y: -0.48250008, z: -0.0006000027}
+  m_LocalPosition: {x: -1.0894998, y: -0.48250008, z: -0.0006000027}
   m_LocalScale: {x: 0.026544102, y: 0.048007872, z: 0.037522316}
   m_Children: []
   m_Father: {fileID: 195843561}
@@ -4010,7 +4010,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2085336636}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.4527043, z: -0.000026069582}
+  m_LocalPosition: {x: -1.1019999, y: -0.4527043, z: -0.000026069582}
   m_LocalScale: {x: 0.049595505, y: 0.027779855, z: 0.039229803}
   m_Children: []
   m_Father: {fileID: 1363812898}
@@ -4129,9 +4129,10 @@ Prefab:
     - target: {fileID: 102630856385811638, guid: d53bbce24b78fb742ba7b93ce8a36f86,
         type: 2}
       propertyPath: m_Text
-      value: "Welcome to Simon Touch Amp in VR!\n\nWait a few seconds for the first
-        button flash\nand repeat the pattern. After each successive round, see how
-        far \nyou can get.\n\nGood luck!"
+      value: "Welcome to Simon Touch Amp in VR!\nPress any key to start the game.
+        \nWatch the first button flash and DO NOT \npress any buttons UNTIL the status
+        says \"Your Turn!\". \nAfter each successive round, see how far you can get.\n\nGood
+        luck!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53bbce24b78fb742ba7b93ce8a36f86, type: 2}

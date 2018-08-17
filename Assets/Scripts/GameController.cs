@@ -38,18 +38,23 @@ namespace Leap.Unity.Interaction
         // Use this for initialization
         void Start()
         {
-
             for (int i = 0; i < intButtons.Length; i++)
             {
                 intButtons[i] = buttons[i].GetComponent<InteractionButton>();
             }
-
             StartCoroutine(StartFunc());
          }
 
+
         IEnumerator StartFunc()
         {
-            pattern.Add(Random.Range(0, 3));
+            buttonIsPressed = false;
+            roundNum = 0;
+            setRoundText();
+            statusText.text = "Press any key to start.";
+            isPlaying = true;
+            yield return new WaitUntil(() => Input.anyKeyDown == true);
+            pattern.Add(Random.Range(0, 4));
             roundNum++;
             setRoundText();
             yield return StartCoroutine(PlayPattern());
@@ -59,12 +64,12 @@ namespace Leap.Unity.Interaction
         void UpdatePattern() //increments pattern list, adds new index to call upon -- works 
         {
             
-            pattern.Add(Random.Range(0, 3));
+            pattern.Add(Random.Range(0, 4));
             roundNum++;
             setRoundText();
             if (buttonIsPressed == true)
             {
-                Quit();
+                StartCoroutine(endGame());
             }
         }
 
@@ -72,33 +77,37 @@ namespace Leap.Unity.Interaction
         IEnumerator PlayPattern() //randomly generates and executes pattern 
         {
             //Debug.Log(pattern.Count +" " + buttons.Length);
-            statusText.text = "Waiting...";
-            if (buttonIsPressed == true)
-                {
-                    Quit();
-                }
-            yield return new WaitForSeconds(7);
-            
-            for (int i = 0; i < pattern.Count; i++)
+            if (isPlaying)
             {
+                statusText.text = "Waiting...";
                 if (buttonIsPressed == true)
+                    {
+                        StartCoroutine(endGame());
+                    }
+                yield return new WaitForSeconds(3);
+            
+                for (int i = 0; i < pattern.Count; i++)
                 {
-                    Quit();
+                    if (buttonIsPressed == true)
+                    {
+                        StartCoroutine(endGame());
+                    }
+                    statusText.text = "Playing pattern";
+                    StartCoroutine(buttons[pattern[i]].GetComponent<InteractionButton>().CueLightUp()); //selects Interaction button, applies LightUp()
+                    yield return new WaitForSeconds(.5f);
+                    Debug.Log("Playing pattern: " + buttons[pattern[i]]);
+                    yield return new WaitForSeconds(2);
                 }
-                statusText.text = "Playing pattern";
-                StartCoroutine(buttons[pattern[i]].GetComponent<InteractionButton>().CueLightUp()); //selects Interaction button, applies LightUp()
-                yield return new WaitForSeconds(.5f);
-                Debug.Log("Playing pattern: " + buttons[pattern[i]]);
-                yield return new WaitForSeconds(2);
             }
+            
         }
 
-        public static void Quit()
+        /*public static void Quit()
         {
             UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
 
-        }
+        }*/
 
         void setRoundText()
         {
@@ -108,38 +117,42 @@ namespace Leap.Unity.Interaction
         //Stack implementation of user input comparison to pattern
         IEnumerator UsersTurn()
         {
-            for (int i = 0; i < pattern.Count; i++) //total buttons that must be pressed to pass round
+            if (isPlaying)
             {
-                statusText.text = "Your turn!";
-
-                yield return new WaitUntil(() => buttonIsPressed == true);
-
-                if (pressedButtons.Count != 0)
+                for (int i = 0; i < pattern.Count; i++) //total buttons that must be pressed to pass round
                 {
-                    if (pressedButtons.Peek() == intButtons[pattern[i]])
+                    statusText.text = "Your turn!";
+
+                    yield return new WaitUntil(() => buttonIsPressed == true);
+
+                    if (pressedButtons.Count != 0)
                     {
-                        yield return new WaitUntil(() => buttonIsPressed == false);
-                        pressedButtons.Pop();
+                        if (pressedButtons.Peek() == intButtons[pattern[i]])
+                        {
+                            yield return new WaitUntil(() => buttonIsPressed == false);
+                            pressedButtons.Pop();
+                        }
+                        else
+                        {
+                            isPlaying = false;
+                            Debug.Log("Correct button press: " + intButtons[pattern[i]]);
+                            StartCoroutine(endGame());
+                            break;
+                        }
                     }
                     else
                     {
-                        Debug.Log("Correct button press: " + intButtons[pattern[i]]);
-                        endText.text = "Game Over. Score: " + roundNum.ToString();
-                        roundText.text = "";
-                        statusText.text = "";
-                        yield return new WaitForSeconds(3);
-                        Quit();
+                        Debug.Log("Stack overflow");
+                        break;
                     }
+
                 }
-                else
+                if (isPlaying == true)
                 {
-                    Debug.Log("Stack overflow");
-                    break;
+                    statusText.text = "Nice! Next round ...";
+                    StartCoroutine(playGame());
                 }
-                
             }
-            statusText.text = "Nice! Next round ...";
-            StartCoroutine(playGame());
         }
 
         public void addPressed(InteractionButton obj) //used in interactionbutton under collision method
@@ -155,6 +168,20 @@ namespace Leap.Unity.Interaction
             yield return StartCoroutine(PlayPattern());
             yield return StartCoroutine(UsersTurn());
             
+        }
+
+        IEnumerator endGame()
+        {
+            roundText.text = "";
+            statusText.text = "";
+            roundNum = 0;
+            for (int i = 5; i >= 1; i--)
+            {
+                endText.text = "Game Over. Score: " + roundNum.ToString() + "\nRestarting in " + i + " seconds.";
+                yield return new WaitForSeconds(1);
+            }
+            endText.text = "";
+            StartCoroutine(StartFunc());
         }
 
     }

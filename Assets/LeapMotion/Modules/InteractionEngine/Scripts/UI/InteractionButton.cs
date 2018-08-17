@@ -553,31 +553,16 @@ namespace Leap.Unity.Interaction {
                     switch (buttonTag)
                     {
                         case "Orange Button":
-                            preset = 34;
-                            break;
-                        case "Green Button":
-                            preset = 26;
-                            break;
-                        case "Red Button":
-                            preset = 12;
-                            break;
-                        case "Yellow Button":
-                            preset = 20;
-                            break;
-                        case "Light Blue Button":
-                            preset = 23;
-                            break;
-                        case "Grey Button":
                             preset = 18;
                             break;
-                        case "Pink Button":
-                            preset = 13;
+                        case "Green Button":
+                            preset = 5;
+                            break;
+                        case "Red Button":
+                            preset = 21;
                             break;
                         case "Blue Button":
-                            preset = 16;
-                            break;
-                        case "Purple Button":
-                            preset = 3;
+                            preset = 1;
                             break;
                         default: //default preset: 36
                             preset = 36;
@@ -593,7 +578,7 @@ namespace Leap.Unity.Interaction {
         public IEnumerator CueLightUp()
         {
             child.GetComponent<Renderer>().material = emissive;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
             child.GetComponent<Renderer>().material = original;
         }
 
