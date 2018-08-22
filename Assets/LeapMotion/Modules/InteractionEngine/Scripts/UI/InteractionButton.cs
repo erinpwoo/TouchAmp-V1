@@ -578,7 +578,7 @@ namespace Leap.Unity.Interaction {
         public IEnumerator CueLightUp()
         {
             child.GetComponent<Renderer>().material = emissive;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.2f);
             child.GetComponent<Renderer>().material = original;
         }
 

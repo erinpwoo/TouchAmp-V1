@@ -94,7 +94,7 @@ namespace Leap.Unity.Interaction
                     }
                     statusText.text = "Watch pattern";
                     StartCoroutine(buttons[pattern[i]].GetComponent<InteractionButton>().CueLightUp()); //selects Interaction button, applies LightUp()
-                    yield return new WaitForSeconds(.5f);
+                    yield return new WaitForSeconds(.3f);
                     Debug.Log("Playing pattern: " + buttons[pattern[i]]);
                     yield return new WaitForSeconds(1.5f);
                 }
@@ -164,14 +164,18 @@ namespace Leap.Unity.Interaction
 
         IEnumerator playGame()
         {
-            UpdatePattern();
-            yield return StartCoroutine(PlayPattern());
-            yield return StartCoroutine(UsersTurn());
+            if (isPlaying == true)
+            {
+                UpdatePattern();
+                yield return StartCoroutine(PlayPattern());
+                yield return StartCoroutine(UsersTurn());
+            }
             
         }
 
         IEnumerator endGame()
         {
+            isPlaying = false;
             pattern.Clear();
             for (int i = 0; i < pressedButtons.Count; i++)
             {
