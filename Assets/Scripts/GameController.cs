@@ -172,14 +172,20 @@ namespace Leap.Unity.Interaction
 
         IEnumerator endGame()
         {
+            pattern.Clear();
+            for (int i = 0; i < pressedButtons.Count; i++)
+            {
+                pressedButtons.Pop();
+            }
+            buttonIsPressed = false;
             roundText.text = "";
             statusText.text = "";
-            roundNum = 0;
             for (int i = 5; i >= 1; i--)
             {
                 endText.text = "Game Over. Score: " + roundNum.ToString() + "\nRestarting in " + i + " seconds.";
                 yield return new WaitForSeconds(1);
             }
+            roundNum = 0;
             endText.text = "";
             StartCoroutine(StartFunc());
         }
